@@ -1,12 +1,10 @@
 import fetch from "node-fetch";
 import ytdl from 'youtubedl-core';
-import yts from 'yt-search';
-import axios from 'axios';
+import yts from 'youtube-yts';
 import fs from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
 import os from 'os';
-import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 
 const streamPipeline = promisify(pipeline);
 
