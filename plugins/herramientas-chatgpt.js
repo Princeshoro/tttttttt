@@ -15,15 +15,16 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     // React with a heart emoji
-    m.react("💗")
+    m.react("⏳")
     // Fetch the response from the API
     const response = await fetch(`https://ultimetron.guruapi.tech/gpt3?prompt=${prompt}`);
     // Parse the response as JSON
     const data = await response.json();
-    // Get the completion from the data
-    let result = data.completion
-    // Reply with the result
-    m.reply(result.trim());
+   // Get the completion from the data
+   let result = data.completion || "Api server error try again later";
+  // Reply with the result
+  m.reply(result.trim());
+
     // React with a pointing down emoji
     m.react("✅")
   } catch (error) {
