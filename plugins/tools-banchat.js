@@ -7,7 +7,7 @@ handler.help = ['banchat']
 handler.tags = ['owner']
 handler.command = /^banchat|bangata|offmd|banchat2$/i
 handler.botAdmin = false
-handler.admin = true 
+handler.admin = false
 handler.rowner = true
 handler.owner = true
 export default handler
