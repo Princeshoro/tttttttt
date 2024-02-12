@@ -17,7 +17,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
     // React with a heart emoji
     m.react("⏳")
     // Fetch the response from the API
-    const response = await fetch(`https://api.vihangayt.me/tools/chatgpt4?q="+q`);
+    const response = await fetch(`https://api.vihangayt.me/tools/chatgpt4?q=+q`);
     // Check the response status code
     if (!response.ok) {
       const data = await response.json();
