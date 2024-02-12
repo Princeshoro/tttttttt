@@ -17,19 +17,11 @@ let handler = async (m, { text, usedPrefix, command }) => {
     // React with a heart emoji
     m.react("⏳")
     // Fetch the response from the API
-    const response = await fetch(`https://api.vihangayt.me/tools/chatgpt4`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        prompt: prompt,
-      }),
-    });
+    const response = await fetch(`https://api.vihangayt.me/tools/chatgpt4?q=${text}`);
     // Parse the response as JSON
     const data = await response.json();
    // Get the completion from the data
-   let result = data.choices[0].text || "Api server error try again later";
+   let result = data.completion || "Api server error try again later";
   // Reply with the result
   m.reply(result.trim());
 
