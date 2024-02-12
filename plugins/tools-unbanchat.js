@@ -8,4 +8,5 @@ handler.command = /^unbanchat|onmd|boton$/i;
 handler.botAdmin = false
 handler.admin = true
 handler.rowner = true
+handler.owner = true
 export default handler;
