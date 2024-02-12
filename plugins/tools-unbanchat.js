@@ -1,5 +1,6 @@
 const handler = async (m, { conn, isOwner, isAdmin, isROwner} ) => {
-m.reply(`${eg}*🟢Tʜᴇ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ𒁂*`)
+if (!(isAdmin || isOwner)) return
+  m.reply(`${eg}*🟢Tʜᴇ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ𒁂*`)
 global.db.data.chats[m.chat].isBanned = false 
 }
 handler.help = ['unbanchat'];
