@@ -1,13 +1,11 @@
-//import db from '../lib/database.js'
-
-let handler = async (m, { conn, isOwner, isAdmin, isROwner }) => {
-    if (!(isAdmin || isOwner)) return dfail('admin', m, conn)
-    global.db.data.chats[m.chat].isBanned = true
-    m.reply('*🔴Tʜᴇ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴄᴛɪᴠᴀᴛᴇᴅ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ𒁂*')
+let handler = async (m) => {
+global.db.data.chats[m.chat].isBanned = true
+m.reply(`${eg}\n*🔴Tʜᴇ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴄᴛɪᴠᴀᴛᴇᴅ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ𒁂*`)
 }
 handler.help = ['banchat']
 handler.tags = ['owner']
-handler.command = ['banchat', 'botoff', 'offmd'] 
-
+handler.command = /^banchat|bangata|offmd|banchat2$/i
+handler.botAdmin = false
+handler.admin = true 
+handler.owner = true
 export default handler
- 
