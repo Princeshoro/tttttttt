@@ -1,5 +1,6 @@
 let handler = async (m, { conn, isOwner, isAdmin, isROwner} ) => {
-global.db.data.chats[m.chat].isBanned = true
+if (!(isAdmin || isOwner)) return
+  global.db.data.chats[m.chat].isBanned = true
 m.reply(`${eg}*🔴Tʜᴇ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴄᴛɪᴠᴀᴛᴇᴅ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ𒁂*`)
 }
 handler.help = ['banchat']
