@@ -13,7 +13,7 @@ throw `
 ${lenguajeGB'smsAvisoMG'}*╭━[ ${wm} ]━⬣*
 *┃➥ ${usedPrefix + command} open*
 *┃➥ ${usedPrefix + command} close*
-*╰━━━━━[ 𓃠 ${vs} ]━━━━━⬣*
+*╰━━━━━[ 💗 ${vs} ]━━━━━⬣*
 `.trim()
 await conn.groupSettingUpdate(m.chat, isClose)
   
@@ -28,7 +28,7 @@ conn.sendButton(m.chat, `${lenguajeGB'smsAvisoEG'}𝙊𝙉𝙇𝙔 𝘼𝘿𝙈�
  }
 handler.help = ['group open / close', 'group open / close']
 handler.tags = ['group']
-handler.command = /^(group|group)$/i
+handler.command = /^(group|gp)$/i
 handler.admin = true
 handler.botAdmin = true
 export default handler
