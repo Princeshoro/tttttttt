@@ -1,5 +1,5 @@
 const { MessageType } = require("@whiskeysockets/baileys");
-const ytdl = require("ytdl-core");
+const ytdl = require("youtube-core");
 const yts = require("yt-search");
 const fs = require("fs");
 const os = require("os");
