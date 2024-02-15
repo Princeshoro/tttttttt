@@ -213,8 +213,10 @@ message: {
 
 
 const file = fileURLToPath(import.meta.url);
-watchFile(file, () => {
-  unwatchFile(file);
-  console.log(chalk.redBright('Update \'prince.js\''));
-  import(`${file}?update=${Date.now()}`);
+
+fs.watch(file, (eventType) => {
+  if (eventType === 'change') {
+    console.log(chalk.redBright('Update \'prince.js\''));
+    import(`${file}?update=${Date.now()}`);
+  }
 });
