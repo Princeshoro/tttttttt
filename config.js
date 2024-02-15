@@ -29,14 +29,14 @@ global.confirmCode = "" //Do not touch this line ⚠️
 // [EN] > I added one of the languages available for the Bot in "mid".
 
 
-//IF YOU GUYS WANT TO CHANGE THE LANGUAGE JUST PUT YOUR LANGUAGE SHORT CODE BUT REMEMBER ONLY AVAILABLE LANGUAGES 
-//💠 IDIOMS AVAILABLE FOR GDS-MD
-//🌐 English Global   👉   en
-//🌐 Spanish        👉   es
-//🌐 Portuguese   👉   pt
-//🌐 Bahasa     👉  id
-//🌐 Arabi   👉   ar
-//🌐 Hindi 👉   hi
+// IF YOU GUYS WANT TO CHANGE THE LANGUAGE JUST PUT YOUR LANGUAGE SHORT CODE BUT REMEMBER ONLY AVAILABLE LANGUAGES 
+// 💠 IDIOMS AVAILABLE FOR GDS-MD
+// 🌐 English Global   👉   en
+// 🌐 Spanish        👉   es
+// 🌐 Portuguese   👉   pt
+// 🌐 Bahasa     👉  id
+// 🌐 Arabi   👉   ar
+// 🌐 Hindi 👉   hi
 
 // ❰❰ IDIOMAS DISPONIBLES : AVAILABLE LANGUAGES ❱❱
 global.lenguajeGB = en
