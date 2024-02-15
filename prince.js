@@ -212,10 +212,9 @@ message: {
 
 
 
-
-let file = fileURLToPath(import.meta.url);
+const file = fileURLToPath(import.meta.url);
 watchFile(file, () => {
-unwatchFile(file);
-console.log(chalk.redBright("Update 'prince.js'"));
-import(`${file}?update=${Date.now()}`);
+  unwatchFile(file);
+  console.log(chalk.redBright('Update \'prince.js\''));
+  import(`${file}?update=${Date.now()}`);
 });
