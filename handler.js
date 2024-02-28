@@ -1166,7 +1166,7 @@ m.reply(`🚫 *IS BANNED,YOU CAN'T USE COMMANDS*\n
 👉 *${ig}*\n👉 ${asistencia}`)
 user.antispam++	
 return
-}}
+}
 
 
 //Antispam		
