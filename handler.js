@@ -1167,7 +1167,16 @@ m.reply(`🚫 *IS BANNED,YOU CAN'T USE COMMANDS*\n
 user.antispam++	
 return
 }}
-		
+
+
+//Antispam		
+if (user.antispam2 && isROwner) return
+let time = global.db.data.users[m.sender].spam + 5000
+if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
+global.db.data.users[m.sender].spam = new Date * 1
+}
+
+	
 let hl = _prefix 
 let adminMode = global.db.data.chats[m.chat].modoadmin
 let gata = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
