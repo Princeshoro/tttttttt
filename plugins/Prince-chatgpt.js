@@ -12,7 +12,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://api.yanzbotz.my.id/api/ai/gpt4?query=${encodeURIComponent(prompt)}&name=${m.pushName}&content=Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER&apiKey=freeapikey`);
+    const response = await fetch(`https://api.yanzbotz.my.id/api/ai/gpt4?query=${encodeURIComponent(prompt)}&name=${m.pushName}&system=Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER&apiKey=freeapikey`);
     const data = await response.json();
     let result = data.result;
     m.reply(result);
