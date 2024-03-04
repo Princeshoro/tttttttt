@@ -37,6 +37,11 @@
       "required": true,
       "value": ""
        },
+     "AutoReaction": {
+      "description": "make true if you want active autoreactions on chats",
+      "required": false,
+      "value": ""
+       },
      "Video_Cap": {
       "description": "Video downloaded caption",
       "required": false,
