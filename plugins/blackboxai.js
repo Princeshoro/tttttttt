@@ -6,25 +6,19 @@ let handler = async (m, { text, usedPrefix, command }) => {
     return m.reply(`*${lenguajeGB['smsAvisoMG']()}⚫𝙀𝙓𝘼𝙈𝙋𝙇𝙀:\n *${usedPrefix + command}* Hi😊 it's blackboxai you can ask about code or your question??`);
   }
 
- // let prompt = text || m.quoted.text;
-
   try {
     m.react("⏳");
 
-      let d = await fetchJson(`https://vihangayt.me/tools/blackboxv4?q=${text}`)                
-                replygcxeon(d.data)
-           }
-    
-    /*const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${text}`);
+    let response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${encodeURIComponent(text)}`);
     const data = await response.json();
-    let result = data.completion || "*BLACKBOXAI API ERROR TRY LATER*";
+    let result = data.data || "*BLACKBOXAI API ERROR TRY LATER*";
     m.reply(result);
     m.react("✅");
   } catch (error) {
     console.error('Error:', error); 
     m.reply(`*ERROR*: ${error.message}`);
   }
-};*/
+};
 
 handler.command = ['blackboxai', 'bxai'];
 handler.diamond = false;
