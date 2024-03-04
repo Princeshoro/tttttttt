@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { text, usedPrefix, command }) => {
   
   if (!text && !(m.quoted && m.quoted.text)) {
-    return m.reply(`*${lenguajeGB['smsAvisoMG']()}⚫𝙀𝙓𝘼𝙈𝙋𝙇𝙀:\n *${usedPrefix + command}* Hi😊 it's blackboxai you can ask about code or your question??`);
+    return m.reply(`*${lenguajeGB['smsAvisoMG']()}⚫𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* What is Islam? \nHi😊 it's blackboxai you can ask about code or your question??`);
   }
 
   try {
