@@ -10,13 +10,8 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     m.react("⏳");
-    let response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${encodeURIComponent(prompt)}`);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    let data = await response.json();
+    const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${encodeURIComponent(prompt)}`);
+    const data = await response.json();
     let result = data.result;
     m.reply(result);
     m.react("✅");
