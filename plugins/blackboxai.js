@@ -12,8 +12,8 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${text}`);
-    const data = await response.json();
+    let prince = await fetchJson(`https://vihangayt.me/tools/blackboxv4?q=${text}`);
+    let data = await prince.json();
     let result = data.result;
     m.reply(result);
     m.react("✅");
