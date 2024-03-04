@@ -6,11 +6,11 @@ let handler = async (m, { text, usedPrefix, command }) => {
     return m.reply(`*${lenguajeGB['smsAvisoMG']()}⚫𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* Hi😊 it's blackboxai you ask about code or your question??`);
   }
 
-  let prompt = text || m.quoted.text;
+ // let prompt = text || m.quoted.text;
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${encodeURIComponent(prompt)}`);
+    const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${text}`);
     const data = await response.json();
     let result = data.completion || "*BLACKBOXAI API ERROR TRY LATER*";
     m.reply(result);
