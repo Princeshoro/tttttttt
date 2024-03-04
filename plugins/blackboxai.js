@@ -10,7 +10,12 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${text}`);
+
+      let d = await fetchJson(`https://vihangayt.me/tools/blackboxv4?q=${text}`)                
+                replygcxeon(d.data)
+           }
+    
+    /*const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${text}`);
     const data = await response.json();
     let result = data.completion || "*BLACKBOXAI API ERROR TRY LATER*";
     m.reply(result);
@@ -19,7 +24,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
     console.error('Error:', error); 
     m.reply(`*ERROR*: ${error.message}`);
   }
-};
+};*/
 
 handler.command = ['blackboxai', 'bxai'];
 handler.diamond = false;
