@@ -12,7 +12,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
     m.react("⏳");
     const response = await fetch(`https://vihangayt.me/tools/blackboxv4?q=${encodeURIComponent(prompt)}`);
     const data = await response.json();
-    let result = data.result;
+    let result = data.completion || "*BLACKBOXAI API ERROR TRY LATER*";
     m.reply(result);
     m.react("✅");
   } catch (error) {
