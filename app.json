@@ -38,9 +38,9 @@
       "value": ""
        },
      "AutoReaction": {
-      "description": "make true if you want active autoreactions on chats",
+      "description": "Make it true if you want to active autoreactions on chats",
       "required": false,
-      "value": ""
+      "value": "false"
        },
      "Video_Cap": {
       "description": "Video downloaded caption",
@@ -58,7 +58,7 @@
       "value": "."
       },
      "REMOVEBG_KEY": {
-      "description": "your RemoveBg api key",
+      "description": "Put your RemoveBg API key, if you want to use this cmd",
       "required": false,
       "value": ""
     },
