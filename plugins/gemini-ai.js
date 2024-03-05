@@ -4,6 +4,9 @@ let handler = async (m, { text, usedPrefix, command }) => {
   
   if (!text && !(m.quoted && m.quoted.text)) {
     return m.reply(`*${lenguajeGB['smsAvisoMG']()}🟣𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* What is Islam? \n\nHi🤗 it's gemini-ai you can ask about your any question??`);
+   }
+  if (!text && m.quoted && m.quoted.text) {
+    text = m.quoted.text;
   }
 
   try {
