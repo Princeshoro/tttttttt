@@ -1,19 +1,14 @@
-let handler = async(m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
-throw false
+let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
+    let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
+    m.reply(`┃💗⊹ 𝗚𝗥𝗢𝗨𝗣 : *${groupMetadata.subject}*\n\n┃💗⊹ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦 : *${participants.length}*${text ? `\n┃💗⊹ 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 : ${text}\n` : ''}\n\n┌───⊷ 𝗠𝗘𝗡𝗧𝗜𝗢𝗡𝗦\n` + users.map(v => '┃💗⊹ @' + v.replace(/@.+/, '')).join`\n` + '\n└──✪ ɢᴅs-ᴍᴅ ┃ ᴮᴼᵀ ✪──', null, {
+        mentions: users
+    })
 }
-let pesan = args.join` `
-let oi = `💗 ${lenguajeGB['smsAddB5']()} ${pesan}`
-let teks = `╭━〔 *${lenguajeGB['smstagaa']()}* 〕━⬣\n\n${oi}\n\n`
-for (let mem of participants) {
-teks += `┃💗⊹ @${mem.id.split('@')[0]}\n`}
-teks += `┃\n`
-teks += `┃ ${wm}\n`
-teks += `╰━━━━━[ *𓅓 ${vs}* ]━━━━━⬣`
-conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )  
-}
-handler.command = /^(tagall|invocar|invocacion|todos|invocación)$/i
+
+handler.help = ['tagall']
+handler.tags = ['group']
+handler.command = ['tagall']
 handler.admin = true
 handler.group = true
+
 export default handler
