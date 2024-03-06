@@ -22,7 +22,7 @@ lenguajeGB.smsParaOw() + ' ' + `${global.opts['self'] ? '❌' : '✅'}`,
 lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.modoadmin ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
 lenguajeGB.smsParaOw() + ' ' + `${global.opts['autoread'] ? '✅' : '❌'}`, 
 lenguajeGB.smsParaOw() + ' ' + `${bot.temporal ? '✅' : '❌'}`,         
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.reaction ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
+//lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.reaction ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
 lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.audios ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
 lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.modohorny ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
 lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antitoxic ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
@@ -46,7 +46,7 @@ lenguajeGB.smsAntiIG1(), lenguajeGB.smsAntiTW1(), lenguajeGB.smsSOLOP1(), lengua
 let descripción = [ lenguajeGB.smsWel2(), lenguajeGB.smsDete2(), lenguajeGB.smsANivel2(), lenguajeGB.smsRestri2(), lenguajeGB.smsLlamar2(), lenguajeGB.smsAntiSp2(), lenguajeGB.smsModP2(), lenguajeGB.smsModAd2(), lenguajeGB.smsLect2(), lenguajeGB.smsTempo2(), lenguajeGB.smsStik2(), lenguajeGB.smsStickA2(), lenguajeGB.smsReacc2(), lenguajeGB.smsAudi2(), lenguajeGB.smsModHor2(), lenguajeGB.smsAntitoc2(), lenguajeGB.smsModOb2(), lenguajeGB.smsAntiEli2(), lenguajeGB.smsAntiInt2(), lenguajeGB.smsAntiE2(), lenguajeGB.smsAntiEE2(), lenguajeGB.smsAntiTT2(), lenguajeGB.smsAntiYT2(), lenguajeGB.smsAntiTEL2(), lenguajeGB.smsAntiFB2(),
 lenguajeGB.smsAntiIG2(), lenguajeGB.smsAntiTW2(), lenguajeGB.smsSOLOP2(), lenguajeGB.smsSOLOG2()]
 
-let comando = [ "welcome", "detect", "autolevelup", "restrict", "anticall", "antispam", "public", "modoadmin", "autoread", "temporal", "stickers", "autobio", "reaction", "audios", "autoreaction", "antitoxic", "antiviewonce", "antidelete", "antifake", "antilink", "antilink2", "antitiktok", "antiyoutube", "antitelegram", "antifacebook",
+let comando = [ "welcome", "detect", "autolevelup", "restrict", "anticall", "antispam", "public", "modoadmin", "autoread", "temporal", "stickers", "autobio", "audios", "antitoxic", "antiviewonce", "antifake", "antilink", "antilink2", "antitiktok", "antiyoutube", "antitelegram", "antifacebook",
 "antinstagram", "antitwitter", "pconly", "gconly"]
 
 let sections = Object.keys(titulo, nombre, descripción, comando).map((v, index) => ({ title: `${titulo[v]}`,
@@ -234,7 +234,7 @@ break
     
 
     
-case 'reaction': case 'reaccion': case 'emojis': case 'antiemojis': case 'reacciones': case 'autoreaction':
+/*case 'reaction': case 'reaccion': case 'emojis': case 'antiemojis': case 'reacciones': case 'autoreaction':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -242,6 +242,13 @@ throw false
 }}
 chat.reaction = isEnable          
 break
+
+
+┃┃✦ ${lenguajeGB.smsParaAdYOw()} ${m.isGroup ? chat.reaction ? '✅' : '❌' : lenguajeGB.smsNoGg()}    
+┃┃✦ ${usedPrefix + command} autoreaction
+┃┃✦ ${lenguajeGB.smsReacc2()}
+
+┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈*/
 		
 case 'antitoxic': case 'antitoxicos': case 'antimalos':
 if (m.isGroup) {
@@ -423,165 +430,159 @@ ${m.isGroup ? `` : `${lenguajeGB.smsConfi9()}`}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.welcome ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} welcome
-┃┃✦ ${lenguajeGB.smsWel2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.welcome ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} welcome
+┃💗┃✦ ${lenguajeGB.smsWel2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.detect ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} detec
-┃┃✦ ${lenguajeGB.smsDete2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.detect ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} detec
+┃💗┃✦ ${lenguajeGB.smsDete2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.chatbot ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} chatbot
-┃┃✦ ${lenguajeGB.smsDete2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.chatbot ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} chatbot
+┃💗┃✦ ${lenguajeGB.smsDete2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdYOw()} ${m.isGroup ? chat.autolevelup ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-┃┃✦ ${usedPrefix + command} autolevelup
-┃┃✦ ${lenguajeGB.smsANivel2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdYOw()} ${m.isGroup ? chat.autolevelup ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
+┃💗┃✦ ${usedPrefix + command} autolevelup
+┃💗┃✦ ${lenguajeGB.smsANivel2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${bot.restrict ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} restrict
-┃┃✦ ${lenguajeGB.smsRestri2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${bot.restrict ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} restrict
+┃💗┃✦ ${lenguajeGB.smsRestri2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${bot.antiCall ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} antiCall
-┃┃✦ ${lenguajeGB.smsLlamar2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${bot.antiCall ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} antiCall
+┃💗┃✦ ${lenguajeGB.smsLlamar2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${bot.autobio ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} autobio
-┃┃✦ ${lenguajeGB.smsLlamar2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${bot.autobio ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} autobio
+┃💗┃✦ ${lenguajeGB.smsLlamar2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${bot.antiSpam ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} antiSpam
-┃┃✦ ${lenguajeGB.smsAntiSp2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${bot.antiSpam ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} antiSpam
+┃💗┃✦ ${lenguajeGB.smsAntiSp2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['self'] ? '❌' : '✅'}
-┃┃✦ ${usedPrefix + command} self
-┃┃✦ ${lenguajeGB.smsModP2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['self'] ? '❌' : '✅'}
+┃💗┃✦ ${usedPrefix + command} self
+┃💗┃✦ ${lenguajeGB.smsModP2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.modoadmin ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-┃┃✦ ${usedPrefix + command} modoadmin
-┃┃✦ ${lenguajeGB.smsModAd2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.modoadmin ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
+┃💗┃✦ ${usedPrefix + command} modoadmin
+┃💗┃✦ ${lenguajeGB.smsModAd2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['autoread'] ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} autoread
-┃┃✦ ${lenguajeGB.smsLect1()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['autoread'] ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} autoread
+┃💗┃✦ ${lenguajeGB.smsLect1()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${bot.temporal ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} temporal
-┃┃✦ ${lenguajeGB.smsTempo2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${bot.temporal ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} temporal
+┃💗┃✦ ${lenguajeGB.smsTempo2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.autosticker ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} autosticker
-┃┃✦ ${lenguajeGB.smsStickA2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.autosticker ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} autosticker
+┃💗┃✦ ${lenguajeGB.smsStickA2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdYOw()} ${m.isGroup ? chat.reaction ? '✅' : '❌' : lenguajeGB.smsNoGg()}    
-┃┃✦ ${usedPrefix + command} autoreaction
-┃┃✦ ${lenguajeGB.smsReacc2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antitoxic ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antitoxic
+┃💗┃✦ ${lenguajeGB.smsAntitoc2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antitoxic ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antitoxic
-┃┃✦ ${lenguajeGB.smsAntitoc2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdYOw()} ${m.isGroup ? chat.antiver ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antiver
+┃💗┃✦ ${lenguajeGB.smsModOb2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdYOw()} ${m.isGroup ? chat.antiver ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antiver
-┃┃✦ ${lenguajeGB.smsModOb2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antifake ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antifake
+┃💗┃✦ ${lenguajeGB.smsAntiInt2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antifake ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antifake
-┃┃✦ ${lenguajeGB.smsAntiInt2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiLink ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antiLink
+┃💗┃✦ ${lenguajeGB.smsAntiE2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiLink ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antiLink
-┃┃✦ ${lenguajeGB.smsAntiE2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiLink2 ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antiLink2
+┃💗┃✦ ${lenguajeGB.smsAntiEE2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiLink2 ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antiLink2
-┃┃✦ ${lenguajeGB.smsAntiEE2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiTiktok ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
+┃💗┃✦ ${usedPrefix + command} antiTiktok
+┃💗┃✦ ${lenguajeGB.smsAntiTT2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiTiktok ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-┃┃✦ ${usedPrefix + command} antiTiktok
-┃┃✦ ${lenguajeGB.smsAntiTT2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiYoutube ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antiYoutube
+┃💗┃✦ ${lenguajeGB.smsAntiYT2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiYoutube ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antiYoutube
-┃┃✦ ${lenguajeGB.smsAntiYT2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiTelegram ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antiTelegram
+┃💗┃✦ ${lenguajeGB.smsAntiTEL2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiTelegram ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antiTelegram
-┃┃✦ ${lenguajeGB.smsAntiTEL2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiFacebook ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
+┃💗┃✦ ${usedPrefix + command} antiFacebook
+┃💗┃✦ ${lenguajeGB.smsAntiFB2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiFacebook ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-┃┃✦ ${usedPrefix + command} antiFacebook
-┃┃✦ ${lenguajeGB.smsAntiFB2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiInstagram ? '✅' : '❌' : lenguajeGB.smsNoGg()}
+┃💗┃✦ ${usedPrefix + command} antiInstagram
+┃💗┃✦ ${lenguajeGB.smsAntiIG2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiInstagram ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-┃┃✦ ${usedPrefix + command} antiInstagram
-┃┃✦ ${lenguajeGB.smsAntiIG2()}
+┃💗┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiTwitter ? '✅' : '❌' : lenguajeGB.smsNoGg()}   
+┃💗┃✦ ${usedPrefix + command} antiTwitter
+┃💗┃✦ ${lenguajeGB.smsAntiTW2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaAdmins()} ${m.isGroup ? chat.antiTwitter ? '✅' : '❌' : lenguajeGB.smsNoGg()}   
-┃┃✦ ${usedPrefix + command} antiTwitter
-┃┃✦ ${lenguajeGB.smsAntiTW2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['pconly'] ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} pconly
+┃💗┃✦ ${lenguajeGB.smsSOLOP2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-┃┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['pconly'] ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} pconly
-┃┃✦ ${lenguajeGB.smsSOLOP2()}
-
-┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-
-┃┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['gconly'] ? '✅' : '❌'}
-┃┃✦ ${usedPrefix + command} gconly
-┃┃✦ ${lenguajeGB.smsSOLOG2()}
+┃💗┃✦ ${lenguajeGB.smsParaOw()} ${global.opts['gconly'] ? '✅' : '❌'}
+┃💗┃✦ ${usedPrefix + command} gconly
+┃💗┃✦ ${lenguajeGB.smsSOLOG2()}
 
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
