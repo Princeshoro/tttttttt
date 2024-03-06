@@ -964,7 +964,7 @@ if (!('antiFacebook' in chat)) chat.antiFacebook = false
 if (!('antiInstagram' in chat)) chat.antiInstagram = false
 if (!('antiTwitter' in chat)) chat.antiInstagram = false
 if (!('antifake' in chat)) chat.antifake = false
-if (!('reaction' in chat)) chat.reaction = false    
+//if (!('reaction' in chat)) chat.reaction = false    
 if (!('viewonce' in chat)) chat.viewonce = false       
 if (!('modoadmin' in chat)) chat.modoadmin = false           
 if (!('antitoxic' in chat)) chat.antitoxic = false
@@ -991,7 +991,7 @@ antiFacebook: false,
 antiInstagram: false,
 antiTwitter: false,
 antifake: false,
-reaction: true,
+//reaction: true,
 viewonce: false,
 modoadmin: false,
 antitoxic: false,
