@@ -8,7 +8,6 @@ let oi = `💗 ${lenguajeGB['smsAddB5']()} ${pesan}`
 let teks = `╭━〔 *${lenguajeGB['smstagaa']()}* 〕━⬣\n\n${oi}\n\n`
 for (let mem of participants) {
 teks += `┃💗⊹ @${mem.id.split('@')[0]}\n`}
-         ┃*${participants.length}*
 teks += `┃\n`
 teks += `┃ ${wm}\n`
 teks += `╰━━━━━[ *𓅓 ${vs}* ]━━━━━⬣`
