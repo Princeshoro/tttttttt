@@ -23,7 +23,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
   }
 };
 
-handler.command = ['blackboxai', 'bxai'];
+handler.command = ['gpt2'];
 handler.diamond = false;
 
 export default handler;
