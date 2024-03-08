@@ -20,12 +20,14 @@ const handler = async (m, { conn, text, isOwner, isAdmin }) => {
     const htextos = `${text ? text : '*Here you go*'}`;
     if ((isMedia && quoted.mtype === 'imageMessage') && htextos) {
       var mediax = await quoted.download?.();
-      conn.sendMessage(m.chat, { image: mediax, caption: htextos }, { quoted: m });
+      conn.sendMessage(conn.user.id, { image: mediax, caption: htextos }, { quoted: m });
+      m.react('✅')
     } else if ((isMedia && quoted.mtype === 'videoMessage') && htextos) {
       var mediax = await quoted.download?.();
-      conn.sendMessage(m.chat, { video: mediax, mimetype: 'video/mp4', caption: htextos }, { quoted: m });
+      conn.sendMessage(conn.user.id, { video: mediax, mimetype: 'video/mp4', caption: htextos }, { quoted: m });
+      m.react('✅')
     } else {
-      await conn.relayMessage(conn.user.id, { extendedTextMessage: { text: `${masss}\n${htextos}\n`, ...{ contextInfo: { externalAdReply: { thumbnail: imagen1, sourceUrl: md } } } } }, {});
+      await conn.relayMessage(m.chat, { extendedTextMessage: { text: `${masss}\n${htextos}\n`, ...{ contextInfo: { externalAdReply: { thumbnail: imagen1, sourceUrl: md } } } } }, {});
     }
   }
 };
