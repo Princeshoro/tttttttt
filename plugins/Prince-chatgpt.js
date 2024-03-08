@@ -3,16 +3,20 @@ import fetch from 'node-fetch';
 let handler = async (m, { text, usedPrefix, command }) => {
   
   if (!text && !(m.quoted && m.quoted.text)) {
-    m.reply(`*${lenguajeGB['smsAvisoMG']()}🪄𝙀𝙓𝘼𝙈𝙋𝙇𝙀: ${usedPrefix + command} 𝙒𝙝𝙖𝙩 𝙞𝙨 𝙄𝙨𝙡𝙖𝙢??`);
+    m.reply(`*${lenguajeGB['smsAvisoMG']()}💗𝙀𝙓𝘼𝙈𝙋𝙇𝙀: ${usedPrefix + command} 𝙒𝙝𝙖𝙩 𝙞𝙨 𝙄𝙨𝙡𝙖𝙢??`);
     return;
+
+  }
+  if (!text && m.quoted && m.quoted.text) {
+    text = m.quoted.text;
   }
 
   // Gunakan teks atau teks yang dikutip sebagai prompt
-  let prompt = text || m.quoted.text;
+ // let prompt = text || m.quoted.text;
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://api.vihangayt.asia/ai/chatgpt?q=${encodeURIComponent(prompt)}&name=${m.pushName}&system=Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER`);
+    const response = await fetch(`https://api.vihangayt.asia/ai/chatgpt?q=${encodeURIComponent(text)}&name=${m.pushName}&system=Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER`);
     const data = await response.json();
     let result = data.result;
     m.reply(result);
