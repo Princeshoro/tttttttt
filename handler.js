@@ -1346,7 +1346,8 @@ if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
 if (opts['autoread']) await this.readMessages([m.key])
-if (process.env.STATUSVIEW && m.key.remoteJid === 'status@broadcast')
+if (if (typeof process.env.STATUSVIEW === 'undefined' || process.env.STATUSVIEW.toLowerCase() === 'false') return;
+if (m.key.remoteJid === 'status@broadcast')
 	await conn.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])  
@@ -1481,8 +1482,8 @@ const {
             return
         let chat = global.db.data.chats[msg.chat] || {}
           await this.reply(conn.user.id, ` 
-            *Number :* @${participant.split`@`[0]} 
-            ✅ʜᴀs ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ᴀ ᴍᴇssᴀɢᴇ ʙᴇʟᴏᴡ👇🏻
+            👀𝗣𝗘𝗥𝗦𝗢𝗡 : *@${participant.split`@`[0]}*
+            🟣𝗛𝗔𝗦 𝗗𝗘𝗟𝗘𝗧𝗘𝗗 𝗕𝗘𝗟𝗢𝗪 𝗠𝗘𝗦𝗦𝗔𝗚𝗘👇🏻
             `.trim(), msg, {
                         mentions: [participant]
                     })
