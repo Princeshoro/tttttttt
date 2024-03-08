@@ -1,4 +1,4 @@
-import { MessageType } from '@adiwajshing/baileys';
+let generateWAMessageFromContent = (await import(global.baileys)).default
 import * as fs from 'fs';
 
 const handler = async (m, { conn, text, isOwner, isAdmin }) => {
