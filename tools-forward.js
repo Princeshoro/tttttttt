@@ -10,7 +10,7 @@ const handler = async (m, { conn, text, isOwner, isAdmin }) => {
         ? c.message[q.mtype]
         : { text: '' || c },
     }, { quoted: m, userJid: conn.user.id });
-    await conn.relayMessage(conn.user.id, msg.message, { messageId: msg.key.id });
+    await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
   } catch {
     const quoted = m.quoted ? m.quoted : m;
     const mime = (quoted.msg || quoted).mimetype || '';
@@ -20,15 +20,15 @@ const handler = async (m, { conn, text, isOwner, isAdmin }) => {
     const htextos = `${text ? text : '*Here you go*'}`;
     if ((isMedia && quoted.mtype === 'imageMessage') && htextos) {
       var mediax = await quoted.download?.();
-      conn.sendMessage(conn.user.id, { image: mediax, caption: htextos }, { quoted: m });
+      conn.sendMessage(this.copyNForward === conn.user.id, { image: mediax, caption: htextos }, { quoted: m });
       m.react('✅')
     } else if ((isMedia && quoted.mtype === 'videoMessage') && htextos) {
       var mediax = await quoted.download?.();
-      conn.sendMessage(conn.user.id, { video: mediax, mimetype: 'video/mp4', caption: htextos }, { quoted: m });
+      conn.sendMessage(this.copyNForward === conn.user.id, { video: mediax, mimetype: 'video/mp4', caption: htextos }, { quoted: m });
      
       m.react('✅')
     } else {
-      await conn.relayMessage(conn.user.id, { extendedTextMessage: { text: `${masss}\n${htextos}\n`, ...{ contextInfo: { externalAdReply: { thumbnail: imagen1, sourceUrl: md } } } } }, {});
+      await conn.relayMessage(m.chat, { extendedTextMessage: { text: `${masss}\n${htextos}\n`, ...{ contextInfo: { externalAdReply: { thumbnail: imagen1, sourceUrl: md } } } } }, {});
     }
   }
 };
