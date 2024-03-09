@@ -29,7 +29,7 @@ const handler = async (m, { conn, text, isOwner, isAdmin }) => {
     }
   }
 };
-handler.command = /^(frd)$/i;
+handler.command = ['frwd'];
 handler.tags = ['tools'];
 handler.group = false;
 handler.admin = false;
