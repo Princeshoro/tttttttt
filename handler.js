@@ -1020,10 +1020,10 @@ autoread2: false,
 restrict: false,
 temporal: false,
 antiPrivate: false,
-antiCall: true,
-antiSpam: true,
+antiCall: false,
+antiSpam: false,
 modoia: false, 
-jadibotmd: true,
+jadibotmd: false,
 }} catch (e) {
 console.error(e)
 }
