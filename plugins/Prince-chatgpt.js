@@ -16,7 +16,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://api.vihangayt.asia/ai/chatgpt?q=${encodeURIComponent(text)}=${m.pushName}&Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER`);
+    const response = await fetch(`https://api.vihangayt.asia/ai/chatgpt?q=${encodeURIComponent(text)}&name=${m.Name}&Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER`);
     const data = await response.json();
     let result = data.data || "*CHATGPT API ERROR TRY LATER*";
     m.reply(result);
