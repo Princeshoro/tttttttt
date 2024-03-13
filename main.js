@@ -221,16 +221,16 @@ creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
 markOnlineOnConnect: false, 
-generateHighQualityLinkPreview: true, 
+generateHighQualityLinkPreview: true,
+version,
+syncFullHistory: true,
 getMessage: async (clave) => {
 let jid = jidNormalizedUser(clave.remoteJid)
 let msg = await store.loadMessage(jid, clave.id)
 return msg?.message || ""
 },
-msgRetryCounterCache,
-msgRetryCounterMap,
-defaultQueryTimeoutMs: undefined,   
-version
+msgRetryCounterCache, //Resolve Messages on Hold
+defaultQueryTimeoutMs: undefined,
 }
 
 global.conn = makeWASocket(connectionOptions)
