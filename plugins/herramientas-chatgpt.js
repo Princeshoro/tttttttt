@@ -21,7 +21,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
     // Parse the response as JSON
     const data = await response.json();
    // Get the completion from the data
-   let result = data.completion || "Api server error try again later";
+   let result = data.completion || "*CHATGPT SEVER ERROR*";
   // Reply with the result
   m.reply(result.trim());
 
