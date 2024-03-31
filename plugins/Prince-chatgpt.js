@@ -2,32 +2,40 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, usedPrefix, command }) => {
   
+  // Check if the text or quoted text is provided
   if (!text && !(m.quoted && m.quoted.text)) {
-    m.reply(`*${lenguajeGB['smsAvisoMG']()}💗𝙀𝙓𝘼𝙈𝙋𝙇𝙀: ${usedPrefix + command} 𝙒𝙝𝙖𝙩 𝙞𝙨 𝙄𝙨𝙡𝙖𝙢??`);
+    // Send a message to the user asking for input
+    m.reply(`Please provide some text or quote a message to get a response.`);
+    // Exit the function
     return;
-
-  }
-  if (!text && m.quoted && m.quoted.text) {
-    text = m.quoted.text;
   }
 
-  // Gunakan teks atau teks yang dikutip sebagai prompt
- // let prompt = text || m.quoted.text;
+  // Use the text or quoted text as the prompt
+  let prompt = text || m.quoted.text;
 
   try {
-    m.react("⏳");
-    const response = await fetch(`https://ultimetron.guruapi.tech/gpt4?prompt=${encodeURIComponent(text)}`);
+    // React with a heart emoji
+    m.react("⏳")
+    // Fetch the response from the API
+    const response = await fetch(`https://ultimetron.guruapi.tech/gpt4?prompt=${prompt}`);
+    // Parse the response as JSON
     const data = await response.json();
-    let result = data.data || "*CHATGPT API ERROR TRY LATER*";
-    m.reply(result);
-    m.react("✅");
+   // Get the completion from the data
+   let result = data.completion || "GPT4 SERVER ERROR";
+  // Reply with the result
+  m.reply(result.trim());
+
+    // React with a pointing down emoji
+    m.react("✅")
   } catch (error) {
+    // Log the error
     console.error('Error:', error); 
-    m.reply(`*ERROR*: ${error}`);
+    // Reply with an error message
+    m.reply(`*ERROR*: ${error.message}`);
   }
 };
 
-handler.command = ['gds', 'gpt4'];
+handler.command = ['gpt4', 'gds'];
 handler.diamond = false;
 
 export default handler;
