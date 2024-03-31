@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import {delay} from '@whiskeysockets/baileys'
 
 let handler = async (m, { text, usedPrefix, command }) => {
   
