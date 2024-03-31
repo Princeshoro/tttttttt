@@ -27,12 +27,3 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 handler.help = ['gpt4 <text>']
 handler.tags = ['tools']
 handler.command = /^(gpt4|gds)$/i
-
-export default handler
-
-async function typewriterEffect(conn, quoted ,from, text) {
-    let { key } = await conn.sendMessage(from, { text: 'Thinking...' } , {quoted:quoted})
-   
-       await delay(100); // Adjust the delay time (in milliseconds) as needed
-    }
-  
