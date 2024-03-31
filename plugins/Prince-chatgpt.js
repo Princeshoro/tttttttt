@@ -12,7 +12,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
   }
 
   // Gunakan teks atau teks yang dikutip sebagai prompt
-  let prompt = text || m.quoted.text;
+ // let prompt = text || m.quoted.text;
 
   try {
     m.react("⏳");
