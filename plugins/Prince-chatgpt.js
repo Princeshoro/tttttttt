@@ -32,19 +32,7 @@ export default handler
 
 async function typewriterEffect(conn, quoted ,from, text) {
     let { key } = await conn.sendMessage(from, { text: 'Thinking...' } , {quoted:quoted})
-  
-    for (let i = 0; i < text.length; i++) {
-      const noobText = text.slice(0, i + 1);
-      await conn.relayMessage(from, {
-        protocolMessage: {
-          key: key,
-          type: 14,
-          editedMessage: {
-            conversation: noobText
-          }
-        }
-      }, {});
    
        await delay(100); // Adjust the delay time (in milliseconds) as needed
     }
-  }
+  
