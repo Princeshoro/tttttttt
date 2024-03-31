@@ -16,7 +16,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://ultimetron.guruapi.tech/gpt4?prompt=${prompt}`);
+    const response = await fetch(`https://ultimetron.guruapi.tech/gpt4?prompt=${text}`);
     const data = await response.json();
     let result = data.data || "*CHATGPT API ERROR TRY LATER*";
     m.reply(result);
