@@ -12,11 +12,11 @@ let handler = async (m, { text, usedPrefix, command }) => {
   }
 
   // Gunakan teks atau teks yang dikutip sebagai prompt
- // let prompt = text || m.quoted.text;
+  let prompt = text || m.quoted.text;
 
   try {
     m.react("⏳");
-    const response = await fetch(`https://api.vihangayt.asia/ai/chatgpt?q=${encodeURIComponent(text)}&name=${m.Name}&Hi%20I%20am%20Prince%2C%20created%20by%20DASTAGEER`);
+    const response = await fetch(`https://ultimetron.guruapi.tech/gpt4?prompt=${prompt}`);
     const data = await response.json();
     let result = data.data || "*CHATGPT API ERROR TRY LATER*";
     m.reply(result);
