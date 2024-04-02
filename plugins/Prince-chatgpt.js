@@ -1,14 +1,12 @@
-
 import displayLoadingScreen from '../lib/loading.js'
 import fetch from 'node-fetch'
 import {delay} from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
   try {
-    if (!text) throw `uhm.. what do you want to say?`
+    if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* I LOVE YOU DASTAGEER😍`
     m.react('⏳')
     //await displayLoadingScreen(conn, m.chat)
-
 
     const prompt = encodeURIComponent(text);
     let apiurl = `https://ultimetron.guruapi.tech/gpt4?prompt=${prompt}`
@@ -17,13 +15,24 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     const response = await result.json();
     console.log(response)
     const textt = response.result.reply;
-    await typewriterEffect(conn,m, m.chat , textt);
-       m.react('✅')
+    await typewriterEffect(conn, m.chat, textt);
+
   } catch (error) {
     console.error(error);
-    m.reply('Oops! Something went wrong. , we are trying had to fix it asap');
+    m.reply('*ERROR FROM SERVER.*');
   }
 }
-handler.help = ['gpt4 <text>']
+
+handler.help = ['gemini <text>']
 handler.tags = ['tools']
-handler.command = /^(gpt4|gds)$/i
+handler.command = /^(gpt4)$/i
+
+export default handler
+
+async function typewriterEffect(conn, chatId, text) {
+  for (let i = 0; i < text.length; i++) {
+    const noobText = text.slice(0, i + 1);
+    await conn.sendMessage(chatId, { text: noobText });
+    await delay(100); // Adjust the delay time (in milliseconds) as needed
+  }
+}
