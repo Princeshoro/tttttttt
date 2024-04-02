@@ -15,7 +15,7 @@ additionalText = '𝘼𝙐𝘿𝙄𝙊 🎧'
 } else if (command === 'video') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊 🎥'}
 let captionvid = `*𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*
-💦𝙏𝙄𝙏𝙇𝙀 » ${yt_play[0].title
+💦𝙏𝙄𝙏𝙇𝙀 » ${yt_play[0].title}
 💦𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿 » ${yt_play[0].ago}
 💦𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 » ${secondString(yt_play[0].duration.seconds)}
 💦𝙑𝙄𝙀𝙒𝙎 » ${MilesNumber(yt_play[0].views)}
