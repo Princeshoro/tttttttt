@@ -1,4 +1,3 @@
-import displayLoadingScreen from '../lib/loading.js';
 import fetch from 'node-fetch';
 import { delay } from '@whiskeysockets/baileys';
 
@@ -11,14 +10,15 @@ if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀
   }
   try {
     m.react('⏳');
-    await displayLoadingScreen(conn, m.chat);
 
     const prompt = encodeURIComponent(text);
     let apiurl = `https://ultimetron.guruapi.tech/gpt4?prompt=${prompt}`
-    m.react('✅');
+    
     const result = await fetch(apiurl);
     const response = await result.json();
     console.log(response);
+      
+      m.react('✅');
     const textt = response.result.reply;
     await conn.sendMessage(m.chat, { text: textt });
 
