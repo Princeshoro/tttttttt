@@ -3,7 +3,13 @@ import fetch from 'node-fetch'
 import { delay } from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-    if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* I LOVE YOU DASTAGEER😍`
+    if (!text && !(m.quoted && m.quoted.text)) {    
+if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* 𝙒𝙝𝙖𝙩 𝙞𝙨 𝙄𝙨𝙡𝙖𝙢??`     
+ }
+  if (!text && m.quoted && m.quoted.text) {
+    text = m.quoted.text;
+  }
+try {
     m.react('⏳')
     //await displayLoadingScreen(conn, m.chat)
 
