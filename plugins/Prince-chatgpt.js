@@ -1,9 +1,8 @@
 import displayLoadingScreen from '../lib/loading.js'
 import fetch from 'node-fetch'
-import {delay} from '@whiskeysockets/baileys'
+import { delay } from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-  try {
     if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* I LOVE YOU DASTAGEER😍`
     m.react('⏳')
     //await displayLoadingScreen(conn, m.chat)
@@ -19,7 +18,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 
   } catch (error) {
     console.error(error);
-    m.reply('*ERROR FROM SERVER.*');
+    m.reply('*ERROR FROM SERVER*');
   }
 }
 
