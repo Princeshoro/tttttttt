@@ -4,7 +4,7 @@ import { delay } from '@whiskeysockets/baileys';
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     if (!text && !(m.quoted && m.quoted.text)) {    
-if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* 𝙒𝙝𝙖𝙩 𝙞𝙨 𝙄𝙨𝙡𝙖𝙢??`     
+if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* I LOVE PRINCE DASTAGEER😍`     
  }
   if (!text && m.quoted && m.quoted.text) {
     text = m.quoted.text;
@@ -15,7 +15,7 @@ if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀
 
     const prompt = encodeURIComponent(text);
     let apiurl = `https://ultimetron.guruapi.tech/gpt4?prompt=${prompt}`
-
+    m.react('✅');
     const result = await fetch(apiurl);
     const response = await result.json();
     console.log(response);
