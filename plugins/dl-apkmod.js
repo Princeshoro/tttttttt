@@ -4,7 +4,7 @@ const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
   try {    
     const searchA = await search(text);
     const data5 = await download(searchA[0].id);
-    let response = ` 𓆩 𓅓 𓆪 *𝘼𝙋𝙋𝙏𝙊𝙄𝘿 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙀𝙍*  𓆩 𓅓 𓆪 \n\n💌𓅓 *𝙉𝘼𝙈𝙀:* ${data5.name}\n📦𓅓 *Package:* ${data5.package}\n🕒𓅓 *𝙇𝘼𝙎𝙏 𝙐𝙋𝘿𝘼𝙏𝙀𝘿:* ${data5.lastup}\n🧮𓅓 *𝙎𝙄𝙕𝙀:* ${data5.size}`
+    let response = ` 💦 *𝘼𝙋𝙋𝙏𝙊𝙄𝘿 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙀𝙍*  💦 \n\n💌𓅓 *𝙉𝘼𝙈𝙀:* ${data5.name}\n📦𓅓 *𝙋𝘼𝘾𝙆𝘼𝙂𝙀:* ${data5.package}\n🕒𓅓 *𝙇𝘼𝙎𝙏 𝙐𝙋𝘿𝘼𝙏𝙀𝘿:* ${data5.lastup}\n🧮𓅓 *𝙎𝙄𝙕𝙀:* ${data5.size}`
     await conn.sendMessage(m.chat, {image: {url: data5.icon}, caption: response}, {quoted: m});
  if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
       return await conn.sendMessage(m.chat, {text: '*𝙏𝙃𝙀 𝙁𝙄𝙇𝙀 𝙎𝙄𝙕𝙀 𝙄𝙎 𝙇𝘼𝙍𝙂𝙀 𝘾𝘼𝙉𝙏 𝙎𝙀𝙉𝘿...*'}, {quoted: m});
