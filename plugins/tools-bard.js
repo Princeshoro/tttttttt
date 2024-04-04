@@ -21,9 +21,9 @@ throw '𝘼𝙋𝙄 𝙀𝙍𝙍𝙊𝙍'
 }
 
 }
-handler.command = ['bard']
+handler.command = ['bard2']
 handler.help = ['bard']
-handler.tags = ['herramientas']
+handler.tags = ['tools']
 
 handler.premium = false
 
