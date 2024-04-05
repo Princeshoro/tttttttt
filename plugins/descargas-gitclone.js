@@ -23,6 +23,4 @@ handler.limit = 0 //❌No gastada diamante si el comando falla
 handler.help = ['gitclone <url>']
 handler.tags = ['downloader']
 handler.command = /gitclone|clonarepo|clonarrepo|repoclonar/i
-handler.limit = 2
-handler.level = 2
 export default handler
