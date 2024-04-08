@@ -33,7 +33,7 @@ handler.limit = false
 }}}}}
 handler.help = ['tiktok']
 handler.tags = ['dl']
-handler.command = /^(tt|tiktok)(dl|nowm)?$/i
+handler.command = /^(tka|ttk|tkk|tk2)?$/i
 //handler.limit = 2
 export default handler
 
