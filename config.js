@@ -109,6 +109,152 @@ global.APIKeys = {
 }
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 //💌------------------------------------------💌
+
+
+
+
+
+
+
+
+
+
+
+
+
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+// [ES] > Agregate a ti, colaboradores o ayudates, aparecerá en el comando de lista de contactos.
+// [EN] > Adding yourself, collaborators or helpers will appear in the contact list command.
+global.official = [ // Agregate si eres Owner
+["923092668108", 'PRINCEGDS 💻', 1], 
+["923092668108", '*_DEVELOPER_* 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
+["923092668108", '𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+["923092668108", '_*DEVELOPER*_ 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+["923092668108", 'Support', 1]]
+  
+
+global.yt = ""
+global.yt2 = ""
+global.ig = ""
+global.md = "https://github.com/PRINCE-GDS/GDS-MD"
+global.fb = ""
+global.tk = ""
+global.ths = ""
+global.paypal = ''
+global.asistencia = 'https://wa.me/message/DCAK67ON3XVOG1' //Contacto
+global.bot = 'wa.me/923092668108'
+
+
+global.nna = '' // CANAL UPDATE
+global.nn2 = '' // CANAL GataBot
+global.nna2 = '' // Help
+global.nn = '' // Grupo 1
+global.nnn = '' // Grupo 2
+global.nnnt = '' // Grupo 3
+global.nnntt = '' // Grupo 4
+global.nnnttt = '' // Grupo 5
+global.nnnttt1 = '' // Grupo 6 COL
+global.nnnttt2 = '' // Grupo 7 COL
+global.nnnttt3 = '' // Grupo 8 COL
+global.nnnttt4 = '' // Grupo 9 COL
+global.nnnttt5 = '' // A.T.M.M
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+
+
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+// ❰ BOT IMAGE ❱
+global.imagen1 = fs.readFileSync("./media/menus/menu.jpg")
+global.imagen2 = fs.readFileSync("./media/menus/menu1.jpg")
+global.imagen3 = fs.readFileSync("./media/menus/menu2.jpg")
+global.imagen4 = fs.readFileSync("./media/menus/Menu3.jpg")
+global.imagen5 = fs.readFileSync("./media/menus/img1.jpg")
+global.imagen6 = fs.readFileSync("./media/menus/img2.jpg")
+global.imagen7 = fs.readFileSync("./media/menus/img3.jpg")
+global.imagen8 = fs.readFileSync("./media/menus/img4.jpg")
+global.imagen9 = fs.readFileSync("./media/menus/img5.png")
+global.imagen10 = fs.readFileSync("./media/menus/img5.jpg")
+global.imagen11 = fs.readFileSync("./media/menus/img6.jpg")
+
+global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
+global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
+global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
+global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
+global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
+global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
+global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
+global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
+global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
+global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
+global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
+global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
+global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
+global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
+global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
+global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
+global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
+global.logogit = 'https://tinyurl.com/2qvl9vgs'
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+
+
+global.logogit = 'https://tinyurl.com/2qvl9vgs'
+
+global.welgata = [tk, ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb, tk, ths, asistencia]
+global.redesMenu = [nna, nn, nn2, nnn, nnnt, nnntt, nnnttt, nnnttt1, nnnttt2, nnnttt3, nnnttt4, nnnttt5, md, ig, paypal, yt, asistencia, fb, tk]
+global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18]
+global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
+global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11]
+
+
+
+//💌------------------------------------------💌
+
+// Fake
+global.fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+
+global.fakeChannel = { contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: '', newsletterName: channelRD.name }, externalAdReply: { title: wm, body: vs, mediaType: 1, renderLargerThumbnail: false, previewType: `PHOTO`, thumbnailUrl: gataImg, thumbnail: imagen1, sourceUrl: accountsgb }}}, { quoted: m }
+  
+const estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: 'Super Bot WhatsApp', orderTitle: 'Bang', thumbnail: gataMenu, sellerJid: '0@s.whatsapp.net' }}}
+const estiloaudio = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { "audioMessage": { "mimetype":"audio/ogg; codecs=opus", "seconds": "99569", "ptt": "true"   
+}}} 
+
+//let bottime = `${name} 𝗧𝗜𝗠𝗘: ${moment.tz('America/Bogota').format('HH:mm:ss')}`//America/Los_Angeles
+
+let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 99, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
+let fgif = {key: {participant : '0@s.whatsapp.net'}, message: {"videoMessage": { "title": wm, "h": `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./media/menus/Menu3.jpg')}}}
+                             
+let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: redesMenu, thumbnail: await(await fetch(gataMenu)).buffer() }}}
+let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
+let dos = [enlace, enlace2]  
+
+global.wait = "⌛ *`Charging...`*\n*✪✦✦⊹⊹⊹⊹⊹⊹⊹⊹✪* `20%`"
+global.waitt = "⏳ *`Charging....`*\n*✪✦✦✦✦⊹⊹⊹⊹⊹⊹✪* `40%`"
+global.waittt = "⌛ *`Charging...`*\n*✪✦✦✦✦✦✦⊹⊹⊹⊹✪* `60%`"
+global.waitttt = "⏳ *`Charging....`*\n*✪✦✦✦✦✦✦✦✦⊹⊹✪* `80%`"
+global.waittttt = "⌛ *`Charging...`*\n*✪✦✦✦✦✦✦✦✦✦✦✪* `100%`"
+  
+  global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n'
+global.resultado = rg
+
+global.ag = '╰⊱⚠️⊱ *𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n'
+global.advertencia = ag
+
+global.iig = '╰⊱❕⊱ *𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉* ⊱⊱╮\n\n'
+global.informacion = iig
+
+global.fg = '╰⊱❌⊱ *𝙀𝙍𝙍𝙊𝙍* ⊱❌⊱╮\n\n'
+global.fallo = fg
+
+global.mg = '╰⊱❗️⊱ *𝙐𝙎𝙀𝘿 𝙄𝙏 𝙒𝙍𝙊𝙉𝙂* ⊱❗️⊱╮\n\n'
+global.mal = mg
+
+global.eeg = '╰⊱📩⊱ *𝙍𝙀𝙋𝙊𝙍𝙏* ⊱📩⊱╮\n\n'
+global.envio = eeg
+
+global.eg = '╰⊱💚⊱ *𝙎𝙐𝘾𝘾𝙀𝙎𝙎* ⊱💚⊱╮\n\n'
+global.exito = eg
+
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+  
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ libraries ❱❱
 global.cheerio = cheerio
