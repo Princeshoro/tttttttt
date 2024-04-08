@@ -14,7 +14,7 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 global.mods = []
 global.prems = []
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
+//💌------------------------------------------💌
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ methodCode ❱❱
 // [ES] > Agregue el número del Bot en "botNumberCode" si desea recibir código de 8 dígitos sin registrar el número en la consola.
@@ -22,7 +22,7 @@ global.prems = []
 global.botNumberCode = "" //example: "+923092668108"
 global.confirmCode = "" //Do not touch this line ⚠️
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
+//💌------------------------------------------💌
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ Multi Idioma Dinámico : Dynamic Multi Language (MID-GB) ❱❱
 // [ES] > Agregué uno de los idiomas disponibles para el Bot en "mid".
@@ -47,6 +47,13 @@ global.version_language = '1.0 (MID-GB)'
 // [EN] > If "default_language" is empty, your default language will be Spanish or the language that each user has selected at the time of registration will be used.
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
+//💌------------------------------------------💌
+
+global.vidcap = process.env.Video_Cap
+global.packname = process.env.BOTNAME
+global.author = process.env.BOTNAME
+
+//💌------------------------------------------💌
 
 
 
@@ -54,9 +61,7 @@ global.version_language = '1.0 (MID-GB)'
 
 
 
-
-
-
+//💌------------------------------------------💌
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ API KEYS ❱❱
 global.Key360 = ["964f-0c75-7afc"] // key violetics
@@ -71,7 +76,7 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = "GataDios"
 global.itsrose = ["4b146102c4d500809da9d1ff"]
 global.baileys = "@whiskeysockets/baileys"
-
+//💌------------------------------------------💌
 global.APIs = { 
 CFROSAPI: 'https://api.cafirexos.com',
 xteam: 'https://api.xteam.xyz',
@@ -89,7 +94,7 @@ rose: 'https://api.itsrose.site',
 popcat : 'https://api.popcat.xyz',
 xcoders : 'https://api-xcoders.site'
 },
-   
+//💌------------------------------------------💌   
 global.APIKeys = { 
 'https://api.xteam.xyz': `${keysxteam}`,
 'https://api.lolhuman.xyz': `${lolkeysapi}`,
@@ -103,7 +108,7 @@ global.APIKeys = {
 'https://api-xcoders.site': 'Frieren'
 }
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
+//💌------------------------------------------💌
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰❰ libraries ❱❱
 global.cheerio = cheerio
@@ -112,7 +117,7 @@ global.fetch = fetch
 global.axios = axios
 global.moment = moment
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
+//💌------------------------------------------💌
 
 
 global.mail = '' // Add email
@@ -134,17 +139,17 @@ global.menuvid = 'https://i.imgur.com/GFAAXqw.mp4'
 
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
-global.vidcap = process.env.Video_Cap
-
-global.packname = process.env.BOTNAME
-global.author = process.env.BOTNAME
-
+//💌------------------------------------------💌
 
 
 global.img = 'https://i.imgur.com/IXlUwTW.jpg'
 
-
+global.wm = "𝙂𝘿𝙎-𝙈𝘿 : ɢᴅs-ᴍᴅ"
+global.igfg = "𝙂𝘿𝙎-𝙈𝘿"
+global.nomorown = "923092668108"
+global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
+//💌------------------------------------------💌
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // ❰ RPG ❱
 global.flaaa = [
@@ -186,7 +191,7 @@ message: {
 'jpegThumbnail': fs.readFileSync('./media/menus/Menu3.jpg')
 }}}
 
-
+//💌------------------------------------------💌
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // Add the owner numbers if you want.
 global.owner = [
