@@ -30,7 +30,6 @@ global.ths = ""
 global.paypal = ''
 global.asistencia = 'https://wa.me/message/DCAK67ON3XVOG1' //Contacto
 global.bot = 'wa.me/923092668108'
-global.cuentas = accounts.all
 
 
 global.nna = '' // CANAL UPDATE
