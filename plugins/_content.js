@@ -84,7 +84,7 @@ global.imagen7 = fs.readFileSync("./media/menus/img3.jpg")
 global.imagen8 = fs.readFileSync("./media/menus/img4.jpg")
 global.imagen9 = fs.readFileSync("./media/menus/img5.png")
 global.imagen10 = fs.readFileSync("./media/menus/img5.jpg")
-global.imagen11 = fs.readFileSync("./media/menus/img6.jpg"))
+global.imagen11 = fs.readFileSync("./media/menus/img6.jpg")
 
 global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
 global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
