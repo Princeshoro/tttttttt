@@ -160,11 +160,6 @@ global.exito = eg
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
   
-global.wm = "𝙂𝘿𝙎-𝙈𝘿 : ɢᴅs-ᴍᴅ"
-global.igfg = "𝙂𝘿𝙎-𝙈𝘿"
-global.nomorown = "923092668108"
-global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
-// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 
 global.destraba = `⏰DESTRABA⏰*
