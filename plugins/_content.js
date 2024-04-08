@@ -8,10 +8,6 @@ var handler = m => m
 handler.all = async function (m) {
 global.key = ''
 
-// Cuentas
-const response = await fetch('https://raw.githubusercontent.com/PRINCE-GDS/GDS-MD/main/official_accounts.json')  
-const data = await response.json()
-let { accounts, channels, groups, collaboration, sponsors, others } = data.info
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // [ES] > Agregate a ti, colaboradores o ayudates, aparecerá en el comando de lista de contactos.
@@ -36,28 +32,21 @@ global.asistencia = 'https://wa.me/message/DCAK67ON3XVOG1' //Contacto
 global.bot = 'wa.me/923092668108'
 global.cuentas = accounts.all
 
-global.canal1 = channels.channel1
-global.canal2 = channels.channel2
-global.canal3 = channels.channel3
-global.canal4 = channels.channel4
 
-global.soporteGB = others.group_support
-global.grupo1 = groups.group1
-global.grupo2 = groups.group2
-global.grupo3 = groups.group3
-global.grupo4 = groups.group4
-global.grupo5 = groups.group5
-global.grupo6 = groups.group6
-
-global.grupo_collab1 = collaboration.group1
-global.grupo_collab2 = collaboration.group2
-global.grupo_collab3 = collaboration.group3
-global.grupo_collab4 = collaboration.group4
-
-global.patrocinador1 = sponsors.boxmine
-global.patrocinador2 = sponsors.cafirexos
-global.patrocinador3 = sponsors.vortexus
-global.patrocinador4 = sponsors.asif
+global.nna = '' // CANAL UPDATE
+global.nn2 = '' // CANAL GataBot
+global.nna2 = '' // Help
+global.nn = '' // Grupo 1
+global.nnn = '' // Grupo 2
+global.nnnt = '' // Grupo 3
+global.nnntt = '' // Grupo 4
+global.nnnttt = '' // Grupo 5
+global.nnnttt1 = '' // Grupo 6 COL
+global.nnnttt2 = '' // Grupo 7 COL
+global.nnnttt3 = '' // Grupo 8 COL
+global.nnnttt4 = '' // Grupo 9 COL
+global.nnnttt5 = '' // A.T.M.M
+// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 global.canales = [canal1, canal2, canal3, canal4].getRandom()
 global.welgata = [tk, ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb, tk, ths, asistencia].getRandom()
