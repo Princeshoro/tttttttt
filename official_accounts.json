@@ -1,0 +1,55 @@
+{
+  "info": {
+
+    "accounts": {
+      "youTube": "https://youtube.com/@gatadios",
+      "instagram": "https://www.instagram.com/gata_dios",
+      "gatabot_md": "https://github.com/PRINCE-GDS/GDS-MD",
+      "gatabotlite_md": "https://github.com/PRINCE-GDS/THE-PRINCE-BOT",
+      "facebook": "",
+      "tiktok": "",
+      "threads": "",
+      "paypal": "",
+      "github": "https://github.com/PRINCE-GDS",
+      "mail": "",
+      "all": ""
+    },
+
+    "channels": {
+      "channel1": "https://whatsapp.com/channel/0029VaKNbWkKbYMLb61S1v11",
+      "channel2": "https://whatsapp.com/channel/0029VaKNbWkKbYMLb61S1v11",
+      "channel3": "https://whatsapp.com/channel/0029VaKNbWkKbYMLb61S1v11",
+      "channel4": "https://t.me/globalgb"
+    },
+
+    "groups": {
+      "group1": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group2": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group3": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group4": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group5": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group6": ""
+    },
+
+    "collaboration": {
+      "group1": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group2": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group3": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP",
+      "group4": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP"
+    },
+
+    "sponsors": {
+      "boxmine": "https://boxmineworld.com",
+      "cafirexos": "https://www.cafirexos.com",
+      "vortexus": "https://vortexuscloud.com",
+      "asif": "https://t.me/Asifhosting"
+    },
+
+    "others": {
+      "assistance_num": "https://wa.me/message/DCAK67ON3XVOG1",
+      "yt_vid": "",
+      "group_support": "https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP"
+    }
+
+  }
+}
