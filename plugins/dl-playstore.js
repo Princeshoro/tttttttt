@@ -1,10 +1,10 @@
-import gplay from "google-play-scraper";
+const gplay = require("google-play-scraper");
 
-let handler = async (m, { conn, text }) => {
+let handler = async (m, { conn, text, tradutor }) => {
 
-  if (!text) throw `*Need Query*`;
+  if (!text) throw `${tradutor.texto2}`;
   let res = await gplay.search({ term: text });
-  if (!res.length) throw `*${tradutor.texto2}*`;
+  if (!res.length) throw `${tradutor.texto2}`;
   let opt = {
     contextInfo: 
       externalAdReply: {
