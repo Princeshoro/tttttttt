@@ -1,8 +1,7 @@
 const gplay = require("google-play-scraper");
 
-let handler = async (m, { conn, text, tradutor }) => {
-
-  if (!text) throw `${tradutor.texto2}`;
+const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
+ if (!text) throw `${lenguajeGB['smsAvisoMG']()}*𝙀𝙓𝘼𝙈𝙋𝙇𝙀: 𝙀𝙉𝙏𝙀𝙍 𝘼𝙋𝙆 𝙉𝘼𝙈𝙀.*`;
   let res = await gplay.search({ term: text });
   if (!res.length) throw `${tradutor.texto2}`;
   let opt = {
@@ -28,5 +27,5 @@ let handler = async (m, { conn, text, tradutor }) => {
 };
 handler.help = ['playstore <aplicacion>'];
 handler.tags = ['internet'];
-handler.command = /^(playstore)$/i;
+handler.command = /^(playstore|pls)$/i;
 export default handler;
