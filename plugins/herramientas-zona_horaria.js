@@ -1,7 +1,7 @@
 import moment from 'moment-timezone'
 
 let handler = async (m, { conn }) => {  
-const fechaper = moment().tz('America/Lima').format('DD/MM HH:mm')
+const fechaper = moment().tz('Karachi/Asia').format('DD/MM HH:mm')
 const fechamex = moment().tz('America/Mexico_City').format('DD/MM HH:mm')
 const fechabol = moment().tz('America/La_Paz').format('DD/MM HH:mm')
 const fechachi = moment().tz('America/Santiago').format('DD/MM HH:mm')
@@ -22,8 +22,8 @@ const fechaasi = moment().tz('Asia/Jakarta').format('DD/MM HH:mm')
 const fechabra = moment().tz('America/Sao_Paulo').format('DD/MM HH:mm')
 const fechaafri = moment().tz('Africa/Malabo').format('DD/MM HH:mm')
 await conn.sendMessage(m.chat, { text: `\`\`\`
-「 ZONA-HORARIA 🗺️ 」
-⏱️Peru       : ${fechaper}
+「 *TIME ZONE* 🗺️ 」
+⏱️Pakistan🇵🇰 : ${fechaper}
 ⏱️Mexico     : ${fechamex}
 ⏱️Bolivia    : ${fechabol}
 ⏱️Chile      : ${fechachi}
@@ -45,11 +45,11 @@ await conn.sendMessage(m.chat, { text: `\`\`\`
 ⏱️G.N.Q      : ${fechaafri}
 \`\`\`
 ${String.fromCharCode(8206).repeat(850)}
-💻 *Zona horaria del servidor actual:*\n*[ ${Intl.DateTimeFormat().resolvedOptions().timeZone} ]*\n*${moment().tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('DD/MM/YY HH:mm:ss')}*` }, {quoted: m })
+💻 *Current server time zone:*\n*[ ${Intl.DateTimeFormat().resolvedOptions().timeZone} ]*\n*${moment().tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('DD/MM/YY HH:mm:ss')}*` }, {quoted: m })
 }
 
-handler.help = ['horario']
+handler.help = ['timezone']
 handler.tags = ['info']
-handler.command = /^(horario)$/i
+handler.command = /^(timezone)$/i
 
 export default handler
