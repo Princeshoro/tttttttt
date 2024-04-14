@@ -115,7 +115,7 @@ const fkontak = {
   }
 
 let selected = text.toLowerCase().split(" ")[0] + " "
-if(selected == "codificar ") {
+if(selected == "coder") {
 let str = text.replace(selected, "").toLowerCase()
 let Output_Morse = ""
 for(let i of str) {
@@ -125,7 +125,7 @@ if(j == i) Output_Morse += enc[i] + " "
 }}
 
 return conn.reply(m.chat, Output_Morse, fkontak, m)
-} else if(selected == "decodificar ") { 
+} else if(selected == "decoder") { 
 let str = text.replace(selected, "").replace(/[.]/g, "•")
 let Output_String = ""
 for(let i of str.split(" ")) {
@@ -135,7 +135,7 @@ if(j == i) Output_String += dec[i]
 }}
 return conn.reply(m.chat, Output_String, fkontak, m)
 } else {
-return conn.reply(m.chat, `${mg}🔣 𝘾𝙊𝘿𝙄𝘾𝙊 𝙈𝙊𝙍𝙎𝙀 𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍/𝘿𝙀𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍\n\n𝙋𝘼𝙍𝘼 𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍 𝙐𝙎𝙀 *:* 𝙏𝙊 𝙀𝙉𝘾𝙊𝘿𝙀 𝙐𝙎𝙀\n*${usedPrefix}${command} codificar Hola Gata*\n*${usedPrefix}${command} codificar Hello Gata*\n\n𝙋𝘼𝙍𝘼 𝘿𝙀𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍 𝙐𝙎𝙀 *:* 𝙏𝙊 𝘿𝙀𝘾𝙊𝘿𝙀 𝙐𝙎𝙀\n*${usedPrefix}${command} decodificar •••• --- •-•• •- / --• •- - •-*\n*${usedPrefix}${command} decodificar •••• • •-•• •-•• --- / --• •- - •-*`, fkontak, m)
+return conn.reply(m.chat, `${mg}🔣 𝘾𝙊𝘿𝙄𝘾𝙊 𝙈𝙊𝙍𝙎𝙀 𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍/𝘿𝙀𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍\n\n𝙋𝘼𝙍𝘼 𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍 𝙐𝙎𝙀 *:* 𝙏𝙊 𝙀𝙉𝘾𝙊𝘿𝙀 𝙐𝙎𝙀\n*${usedPrefix}${command} coder Hello GDS*\n*${usedPrefix}${command} Coder Hello GDS*\n\n𝙋𝘼𝙍𝘼 𝘿𝙀𝘾𝙊𝘿𝙄𝙁𝙄𝘾𝘼𝙍 𝙐𝙎𝙀 *:* 𝙏𝙊 𝘿𝙀𝘾𝙊𝘿𝙀 𝙐𝙎𝙀\n*${usedPrefix}${command} Decoder •••• --- •-•• •- / --• •- - •-*\n*${usedPrefix}${command} Decoder •••• • •-•• •-•• --- / --• •- - •-*`, fkontak, m)
 }}
 
 handler.help = ["morse"].map(v => v + " <encode|decode>")
