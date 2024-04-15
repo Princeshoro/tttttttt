@@ -4,70 +4,37 @@ import cheerio from 'cheerio'
 import { tiktok } from "@xct007/frieren-scraper";
 let generateWAMessageFromContent = (await import(global.baileys)).default
 import { tiktokdl } from '@bochilteam/scraper'
-
-global.fkontak = {
-  "key": {
-    "participants": "0@s.whatsapp.net",
-    "remoteJid": "status@broadcast",
-    "fromMe": false,
-    "id": "Halo"
-  },
-  "message": {
-    "contactMessage": {
-      "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-    }
-  },
-  "participant": "0@s.whatsapp.net"
-};
-
-// ... [rest of your imports and global variable declarations]
-
-let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-  // Check if the text is provided
-  if (!text) {
-    return conn.reply(m.chat, `Please provide the TikTok URL.\nExample: ${usedPrefix + command} https://vm.tiktok.com/ZM6n8r8Dk/`, fkontak, m);
-  }
+let handler = async (m, { conn, text, args, usedPrefix, command}) => {
+ if (!text) throw `_*PRINCE TIKTOK DL*_\n\n*_Past a tiktok link._*\n\n*_Example:_* _${usedPrefix + command} Url here_`;
+  if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) throw `_*PRINCE TIKTOK DL*_\n\n*_Enter a TikTok link._*\n\n*_Example:_* _${usedPrefix + command} Url here_`;
   
-  // Validate the TikTok URL
-  if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) {
-    return conn.reply(m.chat, `The provided URL does not seem to be a valid TikTok link.`, fkontak, m);
-  }
   
-  // Inform the user that the process has started
-  await conn.reply(m.chat, `Processing your TikTok download request...`, fkontak, m);
-
-  // Attempt to download using the first method
   try {
-    const dataF = await tiktok.v1(args[0]);
-    const { author: { nickname }, video, description } = dataF;
-    const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
-    await conn.sendFile(m.chat, url, 'tiktok.mp4', `Here's your TikTok video download.\nAuthor: ${nickname}\nDescription: ${description}`, m);
-  } catch (e1) {
-    console.error('Error in first method:', e1);
-    
-    // Attempt to download using the second method
-    try {
-      const tTiktok = await tiktokdlF(args[0]);
-      await conn.sendFile(m.chat, tTiktok.video, 'tiktok.mp4', `Here's your TikTok video download.\nAuthor: ${nickname}\nDescription: ${description}`, m);
-    } catch (e2) {
-      console.error('Error in second method:', e2);
-      
-      // Attempt to download using the third method
-      try {
-        let p = await fg.tiktok(args[0]);
-        await conn.sendFile(m.chat, p.nowm, 'tiktok.mp4', `Here's your TikTok video download.\nAuthor: ${nickname}\nDescription: ${description}`, m);
-      } catch (e3) {
-        console.error('Error in third method:', e3);
-        
-        // If all methods fail, inform the user
-        await conn.reply(m.chat, `Unable to process your TikTok download request at this time. Please try again later or report this issue.`, fkontak, m);
-      }
-    }
-  }
-};
+const dataF = await tiktok.v1(args[0])
+conn.sendFile(m.chat, dataF.play, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? '\n⛱️ ${mid.smsYT14}\n*${description}*' : ''}\n${wm}`.trim(), m) 
+} catch (e1) {
+try {
+const tTiktok = await tiktokdlF(args[0])
+conn.sendFile(m.chat, tTiktok.video, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? '\n⛱️ ${mid.smsYT14}\n*${description}*' : ''}\n${wm}`.trim(), m) 
+} catch (e2) {
+try {
+let p = await fg.tiktok(args[0]) 
+conn.sendFile(m.chat, p.nowm, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? '\n⛱️ ${mid.smsYT14}\n*${description}*' : ''}\n${wm}`.trim(), m)
+} catch (e3) {
+try { 
+const { author: { nickname }, video, description } = await tiktokdl(args[0])
+const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd
+conn.sendFile(m.chat, url, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? `\n⛱️ ${mid.smsYT14}\n*${description}*` : ''}\n${wm}`.trim(), m)
+
+} catch (e) {
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`,.trim(), m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)
+handler.limit = false
+}}}}}
 handler.help = ['tiktok']
 handler.tags = ['dl']
-handler.command = ['ttkk']
+handler.command =  ['ttkk']
 //handler.limit = 2
 export default handler
 
