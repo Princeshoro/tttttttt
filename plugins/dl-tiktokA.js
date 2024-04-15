@@ -31,6 +31,6 @@ if (!args[0] && !m.quoted) throw `Give the link of the video Tiktok or quote a t
 
 handler.help = ['tiktok'].map((v) => v + ' <url>');
 handler.tags = ['downloader'];
-handler.command = /^t(tkk)$/i;
+handler.command = ['ttkk']
 
 export default handler;
