@@ -1,44 +1,35 @@
-import fg from 'api-dylux' 
-import axios from 'axios'
-import cheerio from 'cheerio'
-import { tiktok } from "@xct007/frieren-scraper";
-let generateWAMessageFromContent = (await import(global.baileys)).default
-import { tiktokdl } from '@bochilteam/scraper'
+import { tiktokdl } from '@bochilteam/scraper';
+import fg from 'api-dylux';
 
-let handler = async (m, { conn, text, args, usedPrefix, command}) => {
-  if (!text) throw `_*PRINCE TIKTOK DL*_\n\n*_Past a tiktok link._*\n\n*_Example:_* _${usedPrefix + command} Url here_`;
-  if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) throw `_*PRINCE TIKTOK DL*_\n\n*_Enter a TikTok link._*\n\n*_Example:_* _${usedPrefix + command} Url here_`;
+const handler = async (m, { conn, text, args, usedPrefix, command }) => {
+ 
+ if (!args[0] && m.quoted && m.quoted.text) {
+  args[0] = m.quoted.text;
+}
+if (!args[0] && !m.quoted) throw `Give the link of the TikTok video or quote a TikTok link`;
+ if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
+ 
+  let txt = 'Here is your Requested video';
 
   try {
-    const dataF = await fg.tiktok(args[0]);
-    conn.sendFile(m.chat, dataF.nowm, 'tiktok.mp4', `⛱️ ${m.sender.username}\n${dataF.author.nickname}\n${dataF.description ? '\n⛱️ ' + dataF.author.uniqueId + '\n' + dataF.description : ''}\n${wm}`.trim(), m);
-  } catch (e1) {
+    const { author: { nickname }, video, description } = await tiktokdl(args[0]);
+    const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
+    
+    if (!url) throw `Not found`;
+    
+    conn.sendFile(m.chat, url, 'tiktok.mp4', '', m);
+  } catch (err) {
     try {
-      const tTiktok = await fg.tiktok(args[0]);
-      conn.sendFile(m.chat, tTiktok.nowm, 'tiktok.mp4', `⛱️ ${m.sender.username}\n${tTiktok.author.nickname}\n${tTiktok.description ? '\n⛱️ ' + tTiktok.author.uniqueId + '\n' + tTiktok.description : ''}\n${wm}`.trim(), m);
-    } catch (e2) {
-      try {
-        const p = await fg.tiktok(args[0]);
-        conn.sendFile(m.chat, p.nowm, 'tiktok.mp4', `⛱️ ${m.sender.username}\n${p.author.nickname}\n${p.description ? '\n⛱️ ' + p.author.uniqueId + '\n' + p.description : ''}\n${wm}`.trim(), m);
-      } catch (e3) {
-        try {
-          const { author: { nickname }, video, description } = await fg.tiktok(args[0]);
-          const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
-          conn.sendFile(m.chat, url, 'tiktok.mp4', `⛱️ ${m.sender.username}\n${nickname}\n${description ? '\n⛱️ ' + dataF.author.uniqueId + '\n' + description : ''}\n${wm}`.trim(), m);
-        } catch (e) {
-          await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`.trim(), m);
-          console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`);
-          console.log(e);
-          handler.limit = false;
-        }
-      }
+      let p = await fg.tiktok(args[0]);
+      conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m);
+    } catch {
+      m.reply('*An unexpected error occurred*');
     }
   }
 };
 
-handler.help = ['tiktok'];
-handler.tags = ['dl'];
+handler.help = ['tiktokA'].map((v) => v + ' <url>');
+handler.tags = ['downloader'];
 handler.command = ['ttkk'];
-//handler.limit = 2;
-export default handler;
 
+export default handler;
