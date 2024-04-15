@@ -10,7 +10,7 @@ if (!args[0] && !m.quoted) throw `Give the link of the video Tiktok or quote a t
  if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
  
  
-  let txt = '${vidcap}';
+  let txt = `${vidcap}`;
 
   try {
     const { author: { nickname }, video, description } = await tiktokdl(args[0]);
@@ -18,7 +18,7 @@ if (!args[0] && !m.quoted) throw `Give the link of the video Tiktok or quote a t
     
     if (!url) throw global.error;
     
-    conn.sendFile(m.chat, url, 'tiktok.mp4', '', m);
+    conn.sendFile(m.chat, url, 'tiktok.mp4', txt', m);
   } catch (err) {
     try {
       let p = await fg.tiktok(args[0]);
