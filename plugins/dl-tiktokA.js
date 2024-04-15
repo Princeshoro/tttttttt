@@ -34,7 +34,7 @@ handler.limit = false
 }}}}}
 handler.help = ['tiktok']
 handler.tags = ['dl']
-handler.command =  ['ttkk']
+handler.command = ['ttkk']
 //handler.limit = 2
 export default handler
 
