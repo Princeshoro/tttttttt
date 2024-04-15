@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { googleImage } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
