@@ -18,8 +18,9 @@ const handler = async (m, { conn, text, args, usedPrefix, command }) => {
   m.reply(waittt);
 
   try {
-    let anu = await fetch(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
-
+    let res = await fetch(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
+    let anu = await res.json()
+    
     console.log('TikTok API Response:', anu);
 
     if (anu.status === 200 && anu.message === 'success' && anu.result) {
@@ -32,11 +33,11 @@ const handler = async (m, { conn, text, args, usedPrefix, command }) => {
       const randomName = `temp_${Math.floor(Math.random() * 10000)}.mp4`;
       fs.writeFileSync(`./${randomName}`, videoBuffer);
 
-      // Placeholder for the vidcap variable
-      const vidcap = 'Your video is ready!';
-
+      //caption
+      const cap = `${vidcap}`;
+      
       // Send the video using conn.sendMessage with the saved video
-      await conn.sendMessage(m.chat, { video: fs.readFileSync(`./${randomName}`), mimetype: 'video/mp4', caption: vidcap }, { quoted: m });
+      await conn.sendMessage(m.chat, { video: fs.readFileSync(`./${randomName}`), mimetype: 'video/mp4', caption: cap}, { quoted: m });
 
       // Delete the temporary file
       fs.unlinkSync(`./${randomName}`);
