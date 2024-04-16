@@ -1,43 +1,46 @@
 import fg from 'api-dylux';
 import fs from 'fs';
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
+import axios from 'axios';
 
 const handler = async (m, { conn, text, args, usedPrefix, command }) => {
- 
- if (!args[0] && m.quoted && m.quoted.text) {
-  args[0] = m.quoted.text;
+
+if (!args[0] && m.quoted && m.quoted.text) {
+args[0] = m.quoted.text;
 }
 if (!args[0] && !m.quoted) throw `Give the link of the TikTok video or quote a TikTok link`;
- if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
- 
-  m.reply(mess.wait);
+if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
 
-    let anu = await fetchJson(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
+m.reply(mess.wait);
 
-    console.log('TikTok API Response:', anu);
+try {
+let anu = await fetchJson(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
 
-    if (anu.status === 200 && anu.message === 'success' && anu.result) {
-      const videoUrl = anu.result;
+console.log('TikTok API Response:', anu);
 
-      const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
-      const videoBuffer = Buffer.from(response.data);
+if (anu.status === 200 && anu.message === 'success' && anu.result) {
+const videoUrl = anu.result;
 
-      // Save the video to a temporary file
-      const randomName = `temp_${Math.floor(Math.random() * 10000)}.mp4`;
-      fs.writeFileSync(`./${randomName}`, videoBuffer);
+const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
+const videoBuffer = Buffer.from(response.data);
 
-      // Send the video using conn.sendMessage with the saved video
-      await conn.sendMessage(m.chat, { video: fs.readFileSync(`./${randomName}`), mimetype: 'video/mp4', caption: `${vidcap}` }, { quoted: m });
+// Save the video to a temporary file
+const randomName = `temp_${Math.floor(Math.random() * 10000)}.mp4`;
+fs.writeFileSync(`./${randomName}`, videoBuffer);
 
-      // Delete the temporary file
-      fs.unlinkSync(`./${randomName}`);
-    } else {
-      console.log ('Error: Unable to fetch TikTok video. Check the console logs for more details.');
-    }
-  } catch (error) {
-    console.error(error);
-    m.reply('An error occurred while processing your request.');
-  }
+// Send the video using conn.sendMessage with the saved video
+await conn.sendMessage(m.chat, { video: fs.readFileSync(`./${randomName}`), mimetype: 'video/mp4', caption: `${vidcap}` }, { quoted: m });
+
+// Delete the temporary file
+fs.unlinkSync(`./${randomName}`);
+} else {
+console.log ('Error: Unable to fetch TikTok video. Check the console logs for more details.');
+}
+} catch (error) {
+console.error(error);
+m.reply('An error occurred while processing your request.');
+}
+}
 
 handler.help = ['tiktok2'].map((v) => v + ' <url>');
 handler.tags = ['downloader'];
