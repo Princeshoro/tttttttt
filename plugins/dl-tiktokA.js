@@ -1,5 +1,6 @@
-import { tiktokdl } from '@bochilteam/scraper';
 import fg from 'api-dylux';
+import fs from 'fs';
+import fetch from 'node-fetch'
 
 const handler = async (m, { conn, text, args, usedPrefix, command }) => {
  
@@ -9,26 +10,36 @@ const handler = async (m, { conn, text, args, usedPrefix, command }) => {
 if (!args[0] && !m.quoted) throw `Give the link of the TikTok video or quote a TikTok link`;
  if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
  
-  let txt = 'Here is your Requested video';
+  m.reply(mess.wait);
 
-  try {
-    const { author: { nickname }, video, description } = await tiktokdl(args[0]);
-    const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
-    
-    if (!url) throw `Not found`;
-    
-    conn.sendFile(m.chat, url, 'tiktok.mp4', '', m);
-  } catch (err) {
-    try {
-      let p = await fg.tiktok(args[0]);
-      conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m);
-    } catch {
-      m.reply('*An unexpected error occurred*');
+    let anu = await fetchJson(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
+
+    console.log('TikTok API Response:', anu);
+
+    if (anu.status === 200 && anu.message === 'success' && anu.result) {
+      const videoUrl = anu.result;
+
+      const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
+      const videoBuffer = Buffer.from(response.data);
+
+      // Save the video to a temporary file
+      const randomName = `temp_${Math.floor(Math.random() * 10000)}.mp4`;
+      fs.writeFileSync(`./${randomName}`, videoBuffer);
+
+      // Send the video using conn.sendMessage with the saved video
+      await conn.sendMessage(m.chat, { video: fs.readFileSync(`./${randomName}`), mimetype: 'video/mp4', caption: `${vidcap}` }, { quoted: m });
+
+      // Delete the temporary file
+      fs.unlinkSync(`./${randomName}`);
+    } else {
+      console.log ('Error: Unable to fetch TikTok video. Check the console logs for more details.');
     }
+  } catch (error) {
+    console.error(error);
+    m.reply('An error occurred while processing your request.');
   }
-};
 
-handler.help = ['tiktokA'].map((v) => v + ' <url>');
+handler.help = ['tiktok2'].map((v) => v + ' <url>');
 handler.tags = ['downloader'];
 handler.command = ['ttkk'];
 
