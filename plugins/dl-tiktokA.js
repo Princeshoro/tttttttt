@@ -11,7 +11,7 @@ args[0] = m.quoted.text;
 if (!args[0] && !m.quoted) throw `Give the link of the TikTok video or quote a TikTok link`;
 if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
 
-m.reply(mess.wait);
+m.reply(waittt);
 
 try {
 let anu = await fetchJson(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
