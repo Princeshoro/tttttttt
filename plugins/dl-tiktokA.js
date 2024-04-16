@@ -8,9 +8,7 @@ import axios from 'axios';
 // async function fetchJson(url) { /* ... */ }
 
 const handler = async (m, { conn, text, args, usedPrefix, command }) => {
-  // Placeholder for the waittt variable
-  const waittt = 'Please wait...';
-
+  
   if (!args[0] && m.quoted && m.quoted.text) {
     args[0] = m.quoted.text;
   }
@@ -20,7 +18,7 @@ const handler = async (m, { conn, text, args, usedPrefix, command }) => {
   m.reply(waittt);
 
   try {
-    let anu = await fetchJson(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
+    let anu = await fetch(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
 
     console.log('TikTok API Response:', anu);
 
