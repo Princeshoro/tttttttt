@@ -80,7 +80,7 @@ weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sa
 months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August ', 'September', 'October', 'November', 'December']
 }
 lugarFecha.locale('en', formatoFecha)
-const horarioFecha = lugarFecha.format('*dddd*, *DD* [of] *MMMM* [of the] *YYYY* \n *HH:mm A*').replace(/^\w/, (c) => c.toUpperCase())
+const horarioFecha = lugarFecha.format('*dddd, DD [of] MMMM [of the] YYYY* \n *HH:mm A*').replace(/^\w/, (c) => c.toUpperCase())
 
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤♥️✨' : user.genero == 'Hidden🕶️' ? `🕶️` : user.genero == 'Woman🚺' ? `🚺` : user.genero == 'Man🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
@@ -93,9 +93,16 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤♥️✨' 
 ╰━━━━━━━━━━━━━━━━━╯
 \`\`\`${horarioFecha}\`\`\`
 
+╭━⊱✫「𝗕𝗢𝗧 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦」✫⊱━╮
+┃⎔ ᴀɪ ᴄᴍᴅs
+┃⎔ ᴅᴏᴡɴʟᴏᴀᴅᴇʀs ᴄᴍᴅs
+┃⎔
+╰━━━━━━━━━━━━━━━━━╯
+ *Menu is still on designing and Editing*
+ 
 ${readMore}
 
-*╭━[ DOWNLOADS ]━⬣*
+*╭━[ ᴅᴏᴡɴʟᴏᴀᴅᴇʀs ]━⬣*
 ┃🚀➺ _${usedPrefix}img | image *text*_
 ┃🚀➺ _${usedPrefix}pinterest | dlpinterest *text*_
 ┃🚀➺ _${usedPrefix}wallpaper|wp *text*_
