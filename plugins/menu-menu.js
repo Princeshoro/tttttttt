@@ -80,9 +80,9 @@ weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sa
 months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August ', 'September', 'October', 'November', 'December']
 }
 lugarFecha.locale('en', formatoFecha)
-const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
+const horarioFecha = lugarFecha.format('dddd, DD [of] MMMM [of the] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
-let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Hidden🕶️' ? `🕶️` : user.genero == 'Woman🚺' ? `🚺` : user.genero == 'Man🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
+let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤♥️✨' : user.genero == 'Hidden🕶️' ? `🕶️` : user.genero == 'Woman🚺' ? `🚺` : user.genero == 'Man🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 \`\`\`${horarioFecha}\`\`\`
 ⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
@@ -93,35 +93,32 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_
 
-✨ *◜USER INFORMATION◞* ✨
-⊜ *Record Type »* ${user.registered === true ? `_${user.registroC === true ? 'Full Registration 🗂️' : 'Quick Sign-Up 📑'}_` : '❌ _No Registration_'}
-⊜ *My Status »* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
-⊜ *Registered »* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
-⊜ *${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} »* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'Premium Pass_'}
 
-⊜ *${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} »* ${role}
-⊜ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} »* ${emoji} || ${user.exp - min}/${xp}
-⊜ *${lenguajeGB['smsPareja']()}* ${pareja ? `\n*»* ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
-⊜ *Pastime(s)* ➺ ${user.pasatiempo === 0 ? '*No Registration*' : user.pasatiempo + '\n'}
-
-⊜ *Experience ➟* ${exp} ⚡
-⊜ *Diamonds ➟* ${limit} 💎
-⊜ *GDSCoins ➟* ${money} 🐈
-⊜ *Tokens ➟* ${joincount} 🪙
 ${readMore}
-*╭━〔 GDS-MD INFORMATION T 〕⬣*
-┃💫➺ _${usedPrefix}cuentasgatabot | cuentasgb_
-┃💫➺ _${usedPrefix}gruposgb | grupos | groupgb_
-┃💫➺ _${usedPrefix}donar | donate_
-┃💫➺ _${usedPrefix}listagrupos | grouplist_
-┃💫➺ _${usedPrefix}estado | heygata | status_
-┃💫➺ _${usedPrefix}infogata | infobot_
-┃💫➺ _${usedPrefix}instalarbot | installbot_
-┃💫➺ _${usedPrefix}creadora | owner_
-┃💫➺ _${usedPrefix}velocidad | ping_
-┃💫➺ _Bot_ 
-┃💫➺ _Terms & Conditions_
+
+*╭━[ DOWNLOADS ]━⬣*
+┃🚀➺ _${usedPrefix}imag | image *text*_
+┃🚀➺ _${usedPrefix}pinterest | dlpinterest *text*_
+┃🚀➺ _${usedPrefix}wallpaper|wp *text*_
+┃🚀➺ _${usedPrefix}play *text*_
+┃🚀➺ _${usedPrefix}video *text*_
+┃🚀➺ _${usedPrefix}ytmp3 | yta *link*_
+┃🚀➺ _${usedPrefix}ytmp4 | ytv *link*_
+┃🚀➺ _${usedPrefix}tw |twdl | twitter *link*_
+┃🚀➺ _${usedPrefix}facebook | fb *link*_
+┃🚀➺ _${usedPrefix}instagram | ig *link video or image*_
+┃🚀➺ _${usedPrefix}igstalk *username*_
+┃🚀➺ _${usedPrefix}igstory *username*_
+┃🚀➺ _${usedPrefix}tiktok |tk *link*_
+┃🚀➺ _${usedPrefix}ttkk *link*_
+┃🚀➺ _${usedPrefix}tiktokimag *link*_
+┃🚀➺ _${usedPrefix}tiktokfoto | tiktokphoto *username*_
+┃🚀➺ _${usedPrefix}vertiktok | tiktokstalk *username*_
+┃🚀➺ _${usedPrefix}mediafire *link*_
+┃🚀➺ _${usedPrefix}clonarepo | gitclone *link*_
 *╰━━━━━━━━━━━━⬣*
+
+
 
 *╭━〔 SUB BOT FUNCTION 〕━⬣*
 ┃ *You can convert now*
@@ -139,64 +136,16 @@ ${readMore}
 ┃ *Failures to be able to Solve!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃💌  _${usedPrefix}report *text*_
-┃💌  _${usedPrefix}report *text*_
 *╰━━━━━━━━━━━━⬣* 
 
-*╭━〔 ÚNETE AL GRUPO 〕━⬣*
+*╭━〔 JOIN THE GROUP 〕━⬣*
 ┃ *One to GDS-MD in Grupos!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🪅 _${usedPrefix}botemporal *enlace* *cantidad*_
 ┃🪅 _${usedPrefix}addbot *enlace* *cantidad*_
 *╰━━━━━━━━━━━━⬣*
 
-*╭━〔 BE PREMIUM 〕━⬣*
-┃ *Becomes a*
-┃ *Premium User!! *
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃🎟️ _${usedPrefix}listapremium | listprem_
-┃🎟️ _${usedPrefix}pase premium_
-┃🎟️ _${usedPrefix}pass premium_
-*╰━━━━━━━━━━━━⬣*
 
-*╭━〔 GAMES - MULTI GAMES 〕━⬣*
-┃🎡➺ _${usedPrefix}mates | matemáticas | math_
-┃🎡➺ _${usedPrefix}lanzar *cara* | *cruz*
-┃🎡➺ _${usedPrefix}ppt *piedra : papel : tijera*_
-┃🎡➺ _${usedPrefix}tictactoe | ttt *sala*_
-┃🎡➺ _${usedPrefix}deltictactoe | delttt_
-┃🎡➺ _${usedPrefix}topgays_
-┃🎡➺ _${usedPrefix}topotakus_
-┃🎡➺ _${usedPrefix}toppajer@s_
-┃🎡➺ _${usedPrefix}topput@s_
-┃🎡➺ _${usedPrefix}topintegrantes | topmember_
-┃🎡➺ _${usedPrefix}toplagrasa | topgrease_
-┃🎡➺ _${usedPrefix}toppanafrescos | Toppanafresco_
-┃🎡➺ _${usedPrefix}topshiposters | Topshipost_
-┃🎡➺ _${usedPrefix}toplindos | toplind@s_
-┃🎡➺ _${usedPrefix}topfamosos | topfamos@s_
-┃🎡➺ _${usedPrefix}topparejas | top5parejas_
-┃🎡➺ _${usedPrefix}gay | gay *@tag*_
-┃🎡➺ _${usedPrefix}gay2 *name : @tag*_
-┃🎡➺ _${usedPrefix}lesbiana *name : @tag*_
-┃🎡➺ _${usedPrefix}manca *name : @tag*_
-┃🎡➺ _${usedPrefix}manco *name : @tag*_
-┃🎡➺ _${usedPrefix}pajero *name : @tag*_
-┃🎡➺ _${usedPrefix}pajera *name : @tag*_
-┃🎡➺ _${usedPrefix}puto *name : @tag*_
-┃🎡➺ _${usedPrefix}puta *name : @tag*_
-┃🎡➺ _${usedPrefix}rata *name : @tag*_
-┃🎡➺ _${usedPrefix}love *name : @tag*_
-┃🎡➺ _${usedPrefix}doxear *name : @tag*_
-┃🎡➺ _${usedPrefix}doxxeame_
-┃🎡➺ _${usedPrefix}pregunta *text*_
-┃🎡➺ _${usedPrefix}apostar | slot *quantity*_
-┃🎡➺ _${usedPrefix}formarpareja_
-┃🎡➺ _${usedPrefix}dado_
-┃🎡➺ _${usedPrefix}verdad_
-┃🎡➺ _${usedPrefix}reto_
-┃🎡➺ _${usedPrefix}multijuegos_
-┃🎡➺ _${usedPrefix}juegos_
-*╰━━━━━━━━━━━━⬣*
 
 *╭━〔 IA 〕━⬣*
 ┃ *You Have the Chance to*
@@ -220,9 +169,6 @@ ${readMore}
 ┃⚙️ _${usedPrefix}on *:* off *autoread*_
 ┃⚙️ _${usedPrefix}on *:* off *temporal*_
 ┃⚙️ _${usedPrefix}on *:* off *stickers*_
-┃⚙️ _${usedPrefix}on *:* off *autosticker*_
-┃⚙️ _${usedPrefix}on *:* off *reaction*_
-┃⚙️ _${usedPrefix}on *:* off *audios*_
 ┃⚙️ _${usedPrefix}on *:* off *pconly*_
 ┃⚙️ _${usedPrefix}on *:* off *gconly*_
 ┃⚙️ _${usedPrefix}on *:* off *antitoxic*_
@@ -240,35 +186,7 @@ ${readMore}
 
 
 
-*╭━[ DOWNLOADS ]━⬣*
-┃🚀➺ _${usedPrefix}imagen | image *texto*_
-┃🚀➺ _${usedPrefix}pinterest | dlpinterest *texto*_
-┃🚀➺ _${usedPrefix}wallpaper|wp *texto*_
-┃🚀➺ _${usedPrefix}play | play2 *texto o link*_
-┃🚀➺ _${usedPrefix}play.1 *texto o link*_
-┃🚀➺ _${usedPrefix}play.2 *texto o link*_ 
-┃🚀➺ _${usedPrefix}ytmp3 | yta *link*_
-┃🚀➺ _${usedPrefix}ytmp4 | ytv *link*_
-┃🚀➺ _${usedPrefix}pdocaudio | ytadoc *link*_
-┃🚀➺ _${usedPrefix}pdocvieo | ytvdoc *link*_
-┃🚀➺ _${usedPrefix}tw |twdl | twitter *link*_
-┃🚀➺ _${usedPrefix}facebook | fb *link*_
-┃🚀➺ _${usedPrefix}instagram *link video or image*_
-┃🚀➺ _${usedPrefix}verig | igstalk *user(a)*_
-┃🚀➺ _${usedPrefix}ighistoria | igstory *user(a)*_
-┃🚀➺ _${usedPrefix}tiktok *link*_
-┃🚀➺ _${usedPrefix}tiktokimagen | ttimagen *link*_
-┃🚀➺ _${usedPrefix}tiktokfoto | tiktokphoto *user(a)*_
-┃🚀➺ _${usedPrefix}vertiktok | tiktokstalk *user(a)*_
-┃🚀➺ _${usedPrefix}mediafire | dlmediafire *link*_
-┃🚀➺ _${usedPrefix}clonarepo | gitclone *link*_
-┃🚀➺ _${usedPrefix}clima *Country City*_
-┃🚀➺ _${usedPrefix}consejo_
-┃🚀➺ _${usedPrefix}morse encode *text*_
-┃🚀➺ _${usedPrefix}morse Decode *morse*_
-┃🚀➺ _${usedPrefix}fraseromantica_
-┃🚀➺ _${usedPrefix}historia_
-*╰━━━━━━━━━━━━⬣*
+
 
 *╭━[ ANONYMOUS CHAT ]━⬣*
 ┃ *Write with Someone* 
@@ -361,12 +279,11 @@ ${readMore}
 ┃ *Logo information!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🔆 _${usedPrefix}logos *Text Effect*_
-┃🌅 _${usedPrefix}menulogos2_
+┃🌅
 *╰━━━━━━━━━━━━⬣*
 
 *╭━━━[ EFFECTS ⛺ ]━━⬣*
 ┃⛺ _${usedPrefix}simpcard *@tag*_
-┃⛺ _${usedPrefix}hornycard *@tag*_
 ┃⛺ _${usedPrefix}lolice *@tag*_
 ┃⛺ _${usedPrefix}ytcomment *texto*_
 ┃⛺ _${usedPrefix}itssostupid_
