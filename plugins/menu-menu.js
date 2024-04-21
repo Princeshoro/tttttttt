@@ -80,18 +80,17 @@ weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sa
 months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August ', 'September', 'October', 'November', 'December']
 }
 lugarFecha.locale('en', formatoFecha)
-const horarioFecha = lugarFecha.format('dddd, DD [of] MMMM [of the] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
+const horarioFecha = lugarFecha.format('*dddd*, *DD* [of] *MMMM* [of the] *YYYY* \n *HH:mm A*').replace(/^\w/, (c) => c.toUpperCase())
 
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤♥️✨' : user.genero == 'Hidden🕶️' ? `🕶️` : user.genero == 'Woman🚺' ? `🚺` : user.genero == 'Man🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
-╭━⊱✫「𝗠𝗥 𝗚𝗗𝗦 𝗠𝗗」✫⊱━╮
-┃⎔ *BOT RUNTIME* ➺ ${uptime} 
-┃⎔ *BOT VERSION* ➺ ${vs}
+╭━━⊱✫「𝗠𝗥 𝗚𝗗𝗦 𝗠𝗗」✫⊱━━╮
+┃⎔ *RUNTIME* ➺ ${uptime} 
+┃⎔ *VERSION* ➺ ${vs}
 ┃⎔ *${lenguajeGB['smsMode']()} ➺* ${global.opts['self'] ? `${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}
 ┃⎔ *${lenguajeGB['smsBanChats']()}* ➺ ${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}
 ┃⎔ *${lenguajeGB['smsBanUsers']()}* ➺ ${Object.entries(global.db.data.users).filter(user => user[1].banned).length}
 ╰━━━━━━━━━━━━━━━━━╯
-
 \`\`\`${horarioFecha}\`\`\`
 
 ${readMore}
