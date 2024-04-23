@@ -12,7 +12,7 @@ const handler = async (m, { conn, command, text, args, usedPrefix}) => {
     conn.PRINCEPLAY = conn.PRINCEPLAY ? conn.PRINCEPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
-    const infoText = `🚀𝗚𝗗𝗦 𝗠𝗗 𝗔𝗨𝗗𝗜𝗢 𝗣𝗟𝗔𝗬𝗘𝗥🚀 \n\𝗖𝗛𝗢𝗢𝗦𝗘 𝗔 𝗡𝗨𝗠𝗕𝗘𝗥 𝗧𝗢 𝗚𝗘𝗧 𝗧𝗛𝗘 𝗔𝗨𝗗𝗜𝗢✨🤍
+    const infoText = `🚀𝗚𝗗𝗦 𝗠𝗗 𝗔𝗨𝗗𝗜𝗢 𝗣𝗟𝗔𝗬𝗘𝗥🚀 \n\n𝗖𝗛𝗢𝗢𝗦𝗘 𝗔 𝗡𝗨𝗠𝗕𝗘𝗥 𝗧𝗢 𝗚𝗘𝗧 𝗧𝗛𝗘 𝗔𝗨𝗗𝗜𝗢✨🤍
     `;
 
 const orderedLinks = result.allLinks.map((link, index) => {
