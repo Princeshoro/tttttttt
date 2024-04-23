@@ -68,7 +68,7 @@ m.reply("Invalid sequence number. Please select the appropriate number from the 
 
 handler.help = ["play"];
 handler.tags = ["downloader"];
-handler.command = /^(play)$/i;
+handler.command = /^(playy)$/i;
 handler.limit = false;
 
 export default handler;
