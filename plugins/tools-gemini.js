@@ -1,5 +1,5 @@
 import {GoogleGenerativeAI} from '@google/generative-ai'
-import displayLoadingScreen from '../lib/loading.js'
+//import displayLoadingScreen from '../lib/loading.js'
 const genAI = new GoogleGenerativeAI('AIzaSyAARhKNTObnl7bDnVkH0o0c1jNPUKaRlhA');
 
 
@@ -12,8 +12,8 @@ if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀
     text = m.quoted.text;
   }
   try {
-      m.react('📃')
-    await displayLoadingScreen(conn, m.chat)
+      m.react('🚀')
+    //await displayLoadingScreen(conn, m.chat)
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const prompt = text
@@ -22,6 +22,7 @@ if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀
     const response = result.response;
     const textt = response.text();
     m.reply(textt)
+   m.react('✅')
   } catch (error) {
     console.error(error);
     m.reply('Error from API')
