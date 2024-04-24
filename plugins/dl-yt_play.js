@@ -15,12 +15,11 @@ additionalText = '𝘼𝙐𝘿𝙄𝙊 🎧'
 } else if (command === 'video') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊 🎥'}
 let captionvid = `*𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*
-💦𝙏𝙄𝙏𝙇𝙀 » ${yt_play[0].title}
-💦𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿 » ${yt_play[0].ago}
-💦𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 » ${secondString(yt_play[0].duration.seconds)}
-💦𝙑𝙄𝙀𝙒𝙎 » ${MilesNumber(yt_play[0].views)}
-💦𝙐𝙍𝙇 » ${yt_play[0].url}
-💦𝙔𝙊𝙐𝙍 ${additionalText}, 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂...
+💦𝘛𝘐𝘛𝘓𝘌 » ${yt_play[0].title}
+💦𝑃𝑈𝐵𝐿𝐼𝑆𝐻𝐸𝐷 » ${yt_play[0].ago}
+💦𝐷𝑈𝑅𝐴𝑇𝐼𝑂𝑁 » ${secondString(yt_play[0].duration.seconds)}
+💦𝘝𝘐𝘌𝘞𝘚 » ${MilesNumber(yt_play[0].views)}
+💦𝘜𝘙𝘓 » ${yt_play[0].url}
 *𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*`  
 await conn.sendMessage(m.chat, {
 text: captionvid,
@@ -150,8 +149,9 @@ m.react('✅')
 handler.limit = 0
 }}
 handler.command = ['play', 'video']
-handler.exp = 0
-handler.limit = 1
+handler.tags = ['Downloader'];
+//handler.exp = 0
+//handler.limit = 1
 export default handler
 
 async function search(query, options = {}) {
