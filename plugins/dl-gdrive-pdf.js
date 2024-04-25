@@ -18,7 +18,7 @@ function getMimeTypeFromExtension(fileExtension) {
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `✳️ Enter a Google Drive link to get the file in pdf format`;
 
-    m.react(waittt);
+    m.reply(waittt);
 
     try {
         let res = await fg.GDriveDl(args[0]);
