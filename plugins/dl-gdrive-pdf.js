@@ -18,7 +18,7 @@ function getMimeTypeFromExtension(fileExtension) {
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `✳️ Enter a Google Drive link to get the file in pdf format`;
 
-    m.react(rwait);
+    m.react(waittt);
 
     try {
         let res = await fg.GDriveDl(args[0]);
@@ -33,7 +33,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 💗 *Type:* ${fileType}`);
 
         conn.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: fileType }, { quoted: m });
-        m.react(done);
+        m.react('✅');
     } catch {
         m.reply('Error: Check the link or try another link');
     }
