@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 ┃▢ *type:* ${res.mimetype}`)
 		
 	conn.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
-	m.react(✅)
+	m.react('✅')
    } catch {
 	m.reply('Error: Check the link or try another link') 
   }
