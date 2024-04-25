@@ -2,7 +2,7 @@ import fg from 'api-dylux'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 	if (!args[0]) throw `Enter a Google Drive link`
-	m.react(wait) 
+	m.react(waitt) 
 	try {
 	let res = await fg.GDriveDl(args[0])
 	 await m.reply(`
@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 ┃▢ *type:* ${res.mimetype}`)
 		
 	conn.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
-	m.react(done)
+	m.react(✅)
    } catch {
 	m.reply('Error: Check the link or try another link') 
   }
