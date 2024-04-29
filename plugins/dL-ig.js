@@ -65,6 +65,8 @@ const handler = (m, { conn, args, command, usedPrefix }) => {
                         .then(fileBuffer => {
                             const mediaType = mediaUrl.endsWith('.mp4') ? 'video' : 'image';
                             const fileName = `instagram_media.${mediaType === 'image' ? 'jpg' : 'mp4'}`;
+				
+				const cap = `${vidcap}`;
 
                             if (mediaType === 'jpg' || mediaType === 'jpeg') {
                                 conn.sendMessage(m.chat, { image: fileBuffer, mimetype: 'image/' + mediaType, fileName, caption: cap }, { quoted: m });
