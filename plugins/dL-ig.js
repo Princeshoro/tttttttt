@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
-import { mime } from 'mime-types';
 
 const handler = async (m, { conn, args, command, usedPrefix }) => {
     if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙉𝙏𝙀𝙍 𝘼 𝙄𝙉𝙎𝙏𝘼𝙂𝙍𝘼𝙈 𝙇𝙄𝙉𝙆 𝙏𝙊 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙔𝙊𝙐𝙍 𝙑𝙄𝘿𝙀𝙊 𝙊𝙍 𝙄𝙈𝘼𝙂𝙀\n🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} https://www.instagram.com/p/CCoI4DQBGVQ/?igshid=YmMyMTA2M2Y=*`
@@ -10,8 +9,8 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
     await conn.sendMessage(m.chat, { text: waittt, edit: key });
     await conn.sendMessage(m.chat, { text: waitttt, edit: key });
 
+async function instaDownload(url) {
     try {
-        const url = args[0];
         const apiUrl = `https://aiodownloader.onrender.com/download?url=${encodeURIComponent(url)}`;
         const response = await fetch(apiUrl);
 
@@ -21,22 +20,34 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
         }
 
         const result = await response.json();
-        const { status, data } = result;
+        return result;
+    } catch (error) {
+        console.error(`Error with API: ${error.message}`);
+        throw error;
+    }
+}
+
+async function downloadAndSendMedia(m, text) {
+    const url = text;
+
+    if (!url) {
+        return m.reply(`Where is the link?\n\nExample: ${prefix + command} https://www.instagram.com/p/CK0tLXyAzEI`);
+    }
+
+    m.reply('Please wait, downloading media...');
+
+    try {
+        const { status, data } = await instaDownload(url);
 
         if (status && data && data.low) {
             const mediaUrl = data.low;
-            const mediaType = mime.extension(mediaUrl);
-            const fileName = `instagram_media.${mediaType}`;
 
-            let cap = `${vidcap}\n\n${wm}`.trim();
+            const response = await fetch(mediaUrl);
+            const bufferArray = await response.arrayBuffer();
+            const fileBuffer = Buffer.from(bufferArray);
 
-            const response = await axios({
-                url: mediaUrl,
-                method: 'GET',
-                responseType: 'arraybuffer'
-            });
-
-            const fileBuffer = Buffer.from(response.data, 'binary');
+            const mediaType = mediaUrl.endsWith('.mp4') ? 'video' : 'image';
+            const fileName = `instagram_media.${mediaType === 'image' ? 'jpg' : 'mp4'}`;
 
             if (mediaType === 'jpg' || mediaType === 'jpeg') {
                 await conn.sendMessage(m.chat, { image: fileBuffer, mimetype: 'image/' + mediaType, fileName, caption: cap }, { quoted: m });
