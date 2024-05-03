@@ -7,27 +7,13 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
 try { 
 const yt_play = await search(args.join(' '))
-const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
-
-ও ${mid.smsYT1}
-» ${yt_play[0].title}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT15}
-» ${yt_play[0].ago}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT5}
-» ${secondString(yt_play[0].duration.seconds)}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও  ${mid.smsYT10}
-» ${MilesNumber(yt_play[0].views)}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও  ${mid.smsYT2}
-» ${yt_play[0].author.name}
-﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-ও ${mid.smsYT4}
-» ${yt_play[0].url}
-
-*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim()
+const texto1 = `𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*
+💦𝙏𝙄𝙏𝙇𝙀 » ${yt_play[0].title}
+💦𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿 » ${yt_play[0].ago}
+💦𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 » ${secondString(yt_play[0].duration.seconds)}
+💦𝙑𝙄𝙀𝙒𝙎 » ${MilesNumber(yt_play[0].views)}
+💦𝙐𝙍𝙇 » ${yt_play[0].url}
+*𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*`.trim()
 
 await conn.sendButton(m.chat, wm, texto1, yt_play[0].thumbnail, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, md)
 
