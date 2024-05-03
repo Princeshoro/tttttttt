@@ -22,6 +22,6 @@ handler.help = ['bardimg']
 handler.tags = ['tools']
 handler.command = /^(bardimg|bardimage)$/i
 
-handler.limit = true
+//handler.limit = true
 
 export default handler
