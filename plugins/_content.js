@@ -9,7 +9,7 @@ handler.all = async function (m) {
 global.key = ''
 
 // Cuentas
-const response = await fetch('https://raw.githubusercontent.com/PRINCE-GDS/GDS-MD/main/official_accounts.json?token=GHSAT0AAAAAACNPUBWXV2TBTTODS6KVJW7UZRU7K4A')  
+const response = await fetch('https://raw.githubusercontent.com/PRINCE-GDS/GDS-MD/main/official_accounts.json')  
 const data = await response.json()
 let { accounts, channels, groups, collaboration, sponsors, others } = data.info
 
