@@ -4,46 +4,25 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-if (!args || !args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙏𝙔𝙋𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 𝙏𝙃𝙀𝙉 𝙋𝘼𝙎𝙏 𝙔𝙊𝙐𝙍 𝙇𝙄𝙉𝙆 𝙂𝙀𝙏 𝙔𝙊𝙐𝙍 𝘼𝙐𝘿𝙄𝙊 𝙄𝙉 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏 𝙁𝙊𝙍𝙈𝘼𝙏\n🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} https://youtu.be/KNU6mPrw4JM?si=wXA0qSypt-GwPhVQ*`, fkontak, m)
-try {
-  m.react("⏳")
+if (!args || !args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/85xI8WFMIUY*`, fkontak, m)
+try { 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play3' || command == 'playaudiodoc') {
+if (command == 'playaudiodoc' || command == 'ytmp3doc') {
 additionalText = '𝘼𝙐𝘿𝙄𝙊'
-} else if (command === 'play4' || command == 'playvideodoc') {
+} else if (command == 'playvideodoc' || command == 'ytmp4doc') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊'
 }
-const texto1 = `*𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*
-💦𝙏𝙄𝙏𝙇𝙀 » ${yt_play[0].title}
-💦𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿 » ${yt_play[0].ago}
-💦𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 » ${secondString(yt_play[0].duration.seconds)}
-💦𝙑𝙄𝙀𝙒𝙎 » ${MilesNumber(yt_play[0].views)}
-💦𝙐𝙍𝙇 » ${yt_play[0].url}
-💦𝙔𝙊𝙐𝙍 ${additionalText}, 𝙄𝙎 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿𝙄𝙉𝙂...
-*𓆩 𓅓 𓆪 ✧═══ ɢᴅs-ᴍᴅ ═══✧ 𓆩 𓅓 𓆪*`.trim()
-await conn.sendMessage(m.chat, {
-text: texto1,
-contextInfo: {
-externalAdReply: {
-title: yt_play[0].title,
-body: packname,
-thumbnailUrl: yt_play[0].thumbnail, 
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
-}}} , { quoted: m })
-if (command == 'playdoc' || command == 'playaudiodoc') {
+conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙎𝙐 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏𝙊 𝘿𝙀 ${additionalText}, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍\n\n𝙎𝙊𝙊𝙉 𝙔𝙊𝙐 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙔𝙊𝙐𝙍 ${additionalText} 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏, 𝙋𝙇𝙀𝘼𝙎𝙀 𝙒𝘼𝙄𝙏`, fkontak,  m)
+if (command == 'playaudiodoc' || command == 'ytmp3doc') {
 try {
-  m.react('🎧')
 const q = '128kbps';
 const v = yt_play[0].url;
 const yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
 const dl_url = await yt.audio[q].download();
 const ttl = await yt.title;
 const size = await yt.audio[q].fileSizeH;
-let cap = `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TITLE:* \n┃» ${ttl}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *SIZE:*\n┃» ${size}\n╰━━━━━❰ *𓅓 ${vs}* ❱━━━━⬣`.trim()
+let cap = `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃» ${ttl}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n┃» ${size}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`.trim()
 await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: cap, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
 title: ttl,
@@ -53,14 +32,13 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
-//await conn.sendMessage(m.chat, {document: {url: dl_url}, caption: cap, mimetype: 'audio/mpeg', fileName: `${ttl}.mp3`}, {quoted: m});
-m.react('✅')
+handler.limit = 1
 } catch {
 try {
 const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
 const lolh = await lolhuman.json();
 const n = lolh.result.title || 'error';
-await conn.sendMessage(m.chat, { document: { url: lolh.result.link }, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TITLE:* \n┃» ${n}\n╰━━━━━❰ *𓅓 ${vs}* ❱━━━━⬣`, fileName: `${n}.mp3`, mimetype: 'audio/mpeg', contextInfo: {
+await conn.sendMessage(m.chat, { document: { url: lolh.result.link }, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃» ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${n}.mp3`, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
 title: n, 
 body: "",
@@ -69,8 +47,8 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
-//await conn.sendMessage(m.chat, {document: {url: lolh.result.link}, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TITLE:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *SIZE:*\n┃» ${n2}\n╰━━━━━❰ *𓅓 ${vs}* ❱━━━━⬣`, fileName: `${n}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
-m.react('✅')
+//await conn.sendMessage(m.chat, {document: {url: lolh.result.link}, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TÍTULO | TITLE:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *PESO | SIZE:*\n┃» ${n2}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${n}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
+handler.limit = 1
 } catch {
 try {
 const searchh = await yts(yt_play[0].url);
@@ -86,13 +64,11 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
-//conn.sendMessage(m.chat, {document: {url: ress.url}, caption: `${wm}`, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
-m.react('✅')
+handler.limit = 2
 } catch {
 }}}}
-if (command == 'play4' || command == 'videodoc') {
+if (command == 'playvideodoc' || command == 'ytmp4doc') {
 try {
-  m.react('💗')
 const qu = '360';
 const q = qu + 'p';
 const v = yt_play[0].url;
@@ -100,7 +76,7 @@ const yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
 const dl_url = await yt.video[q].download();
 const ttl = await yt.title;
 const size = await yt.video[q].fileSizeH;
-await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TÍTULO | TITLE:* \n┃» ${ttl}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *PESO | SIZE:*\n┃» ${size}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${ttl}.mp3`, mimetype: 'audio/mpeg', contextInfo: {
+await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃» ${ttl}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n┃» ${size}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${ttl}.mp3`, mimetype: 'audio/mpeg', contextInfo: {
 externalAdReply: {
 title: ttl,
 body: "",
@@ -109,13 +85,12 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })   
-//await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TÍTULO | TITLE:* \n┃» ${ttl}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *PESO | SIZE:*\n┃» ${size}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
-m.react('✅')
+handler.limit = 2
 } catch {
 try {
 const mediaa = await ytMp4(yt_play[0].url);
 await await conn.sendMessage(m.chat, {document: {url: dl_url}, caption: cap, mimetype: 'video/mp4', fileName: ttl + `.mp4`}, {quoted: m});
-m.react('✅')
+handler.limit = 3
 } catch {
 try {
 const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
@@ -124,18 +99,21 @@ const n = lolh.result.title || 'error';
 const n2 = lolh.result.link;
 const n3 = lolh.result.size;
 const n4 = lolh.result.thumbnail;
-await conn.sendMessage(m.chat, {document: {url: n2}, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *TÍTULO | TITLE:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *PESO | SIZE:*\n┃» ${n3}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4)}, {quoted: m});
-m.react('✅')
+await conn.sendMessage(m.chat, {document: {url: n2}, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃» ${n}\n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n┃» ${n3}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4)}, {quoted: m});
+handler.limit = 3
 } catch {
 }}}}
-} catch {
-  await conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}𝘾𝙊𝙐𝙇𝘿𝙉'𝙏 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙏𝙃𝙀 𝙑𝙄𝘿𝙀𝙊`, fkontak, m) 
+} catch (e) {
+await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
+console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+console.log(e)
 handler.limit = 0
 }}
-handler.help = ['playdoc', 'videodoc'].map((v) => v + ' < busqueda >');
+handler.help = ['ytmp4doc', 'ytmp3doc'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
-handler.command = /^(playaudiodoc|playdoc|play4|videodoc)$/i;
-handler.limit = 3
+handler.command = /^(ytmp4doc|ytmp3doc|playaudiodoc|playdoc|playdoc2|playvideodoc)$/i;
+//handler.limit = 3
+//handler.register = true
 export default handler;
 
 async function search(query, options = {}) {
