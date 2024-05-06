@@ -17,7 +17,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
     // React with a heart emoji
     m.react("⏳")
     // Fetch the response from the API
-    const response = await fetch(`https://api.bk9.site/ai/chatgpt4?q=+q`);
+    const response = await fetch(`https://api.bk9.site/ai/chatgpt4?q=(text)`);
     // Parse the response as JSON
     const data = await response.json();
    // Get the completion from the data
