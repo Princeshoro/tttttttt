@@ -9,11 +9,11 @@ const handler = async (m, { text, usedPrefix, command }) => {
     text = m.quoted.text;
   }
 
-  let prompt = text || m.quoted.text;
+ // let prompt = text || m.quoted.text;
 
   try {
     m.react('⏳');
-    const response = await fetch(`https://api.bk9.site/ai/chatgpt4?q=${encodeURIComponent(prompt)}`);
+    const response = await fetch(`https://api.bk9.site/ai/chatgpt4?q=+q`);
     const data = await response.json();
     let result = data.completion || "*CHATGPT SEVER ERROR*";
     m.reply(result.trim());
