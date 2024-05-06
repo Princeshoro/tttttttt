@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { text, usedPrefix, command }) => {
   // Check if the text or quoted text is provided
-  if (!text && !m.quoted) {
+  if (!text && !(m.quoted && m.quoted.text)) {
     // Send a message to the user asking for input
     m.reply('Please provide some text or quote a message to get a response.');
     // Exit the function
@@ -10,7 +10,7 @@ const handler = async (m, { text, usedPrefix, command }) => {
   }
 
   // Use the text or quoted text as the prompt
-  let prompt = text || m.quoted.text;
+  let prompt = text;
 
   try {
     // React with a heart emoji
