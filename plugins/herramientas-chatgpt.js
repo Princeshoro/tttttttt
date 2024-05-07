@@ -1,25 +1,41 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, { text, usedPrefix, command }) => {
+let handler = async (m, { text, usedPrefix, command }) => {
+
+  // Check if the text or quoted text is provided
   if (!text && !(m.quoted && m.quoted.text)) {
-    m.reply('Please provide some text or quote a message to get a response.');
+    // Send a message to the user asking for input
+    m.reply(`Please provide some text or quote a message to get a response.`);
+    // Exit the function
     return;
-   }
-  if (!text && m.quoted && m.quoted.text) {
-    text = m.quoted.text;
   }
 
- // let prompt = text || m.quoted.text;
+  // Use the text or quoted text as the prompt
+  let prompt = text || m.quoted.text;
 
   try {
-    m.react('⏳');
-    const response = await fetch(`https://api.bk9.site/ai/chatgpt4?q=+q`);
+    // React with a heart emoji
+    m.react("⏳")
+    // Fetch the response from the API
+    const response = await fetch(`https://api.bk9.site/ai/chatgpt4/?q=${encodeURIComponent(prompt)}`);
+    // Check the response status code
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(`API error: ${data.error}`);
+    }
+    // Parse the response as JSON
     const data = await response.json();
-    let result = data.completion || "*CHATGPT SEVER ERROR*";
-    m.reply(result.trim());
-    m.react("✅");
+   // Get the completion from the data
+   let result = data.completion || "SEVER ERROR";
+  // Reply with the result
+  m.reply(result.trim());
+
+    // React with a pointing down emoji
+    m.react("✅")
   } catch (error) {
+    // Log the error
     console.error('Error:', error); 
+    // Reply with an error message
     m.reply(`*ERROR*: ${error.message}`);
   }
 };
@@ -27,4 +43,4 @@ const handler = async (m, { text, usedPrefix, command }) => {
 handler.command = ['gpt'];
 handler.diamond = false;
 
-module.exports = handler;
+export default handler;
