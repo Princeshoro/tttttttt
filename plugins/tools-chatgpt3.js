@@ -11,13 +11,13 @@ let handler = async (m, { text, usedPrefix, command }) => {
   }
 
   // Use the text or quoted text as the prompt
-  let prompt = text || m.quoted.text;
+//  let prompt = text || m.quoted.text;
 
   try {
     // React with a heart emoji
     m.react("⏳")
     // Fetch the response from the API
-    const response = await fetch(`https://api.bk9.site/ai/chatgpt3?q=${encodeURIComponent(prompt)}`);
+    const response = await fetch(`https://api.bk9.site/ai/chatgpt3?q=${q}`);
     // Check the response status code
     if (!response.ok) {
       const data = await response.json();
