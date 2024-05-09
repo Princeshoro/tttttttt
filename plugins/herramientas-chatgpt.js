@@ -9,11 +9,13 @@ let handler = async (m, { text, usedPrefix, command }) => {
     // Exit the function
     return;
   }
+  
+    // Use the text or quoted text as the prompt
+  let prompt = text || m.quoted.text;
+  
   try {
     m.react('⏳');
 
-    // Use the text or quoted text as the prompt
-  let prompt = text || m.quoted.text;
       
     let apiurl = `https://api.bk9.site/ai/chatgpt4/?q=${encodeURIComponent(prompt)}`
     
