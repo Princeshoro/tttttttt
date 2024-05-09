@@ -9,20 +9,30 @@ let handler = async (m, { text, usedPrefix, command }) => {
     text = m.quoted.text;
   }
 
-  try {
-    m.react("⏳");
+    // Use the text or quoted text as the prompt
+  let prompt = text || m.quoted.text;
 
-    let response = await fetch(`https://api.vihangayt.asia/ai/chatgpt?q=${encodeURIComponent(text)}`);
+  try {
+    // React with a heart emoji
+    m.react("⏳");
+    // Fetch the response from the API
+    const response = await fetch(`https://api.bk9.site/ai/chatgpt2/?q=${encodeURIComponent(prompt)}`);
+    // Parse the response as JSON
     const data = await response.json();
-    let result = data.data || "*CHATGPT API ERROR TRY LATER*";
+    // Get the completion from the data
+    let result = data.BK9 || "SERVER ERROR";
+    // Reply with the result
     m.reply(result);
+
+    // React with a checkmark emoji
     m.react("✅");
   } catch (error) {
+    // Log the error
     console.error('Error:', error); 
+    // Reply with an error message
     m.reply(`*ERROR*: ${error.message}`);
   }
 };
-
 handler.command = ['gpt2'];
 handler.diamond = false;
 
