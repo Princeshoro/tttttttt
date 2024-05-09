@@ -1,18 +1,21 @@
 import fetch from 'node-fetch';
 import { delay } from '@whiskeysockets/baileys';
 
-let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-    if (!text && !(m.quoted && m.quoted.text)) {    
-if (!text) throw `*${lenguajeGB['smsAvisoMG']()}🧊𝙀𝙓𝘼𝙈𝙋𝙇𝙀: *${usedPrefix + command}* I LOVE PRINCE DASTAGEER😍`     
- }
-  if (!text && m.quoted && m.quoted.text) {
-    text = m.quoted.text;
+let handler = async (m, { text, usedPrefix, command }) => {
+  // Check if the text or quoted text is provided
+  if (!text && !(m.quoted && m.quoted.text)) {
+    // Send a message to the user asking for input
+    m.reply(`Please provide some text or quote a message to get a response.`);
+    // Exit the function
+    return;
   }
   try {
     m.react('⏳');
 
-    const prompt = encodeURIComponent(text);
-    let apiurl = `https://api.bk9.site/ai/chatgpt4/?q=${prompt}`
+    // Use the text or quoted text as the prompt
+  let prompt = text || m.quoted.text;
+      
+    let apiurl = `https://api.bk9.site/ai/chatgpt4/?q=${encodeURIComponent(prompt)}`
     
     const result = await fetch(apiurl);
     const response = await result.json();
