@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import { delay } from '@whiskeysockets/baileys';
 
 let handler = async (m, { text, usedPrefix, command }) => {
   // Check if the text or quoted text is provided
@@ -9,32 +8,33 @@ let handler = async (m, { text, usedPrefix, command }) => {
     // Exit the function
     return;
   }
-  
-    // Use the text or quoted text as the prompt
+
+  // Use the text or quoted text as the prompt
   let prompt = text || m.quoted.text;
-  
+
   try {
-    m.react('⏳');
+    // React with a heart emoji
+    m.react("⏳");
+    // Fetch the response from the API
+    const response = await fetch(`https://api.bk9.site/ai/chatgpt4/?q=${encodeURIComponent(prompt)}`);
+    // Parse the response as JSON
+    const data = await response.json();
+    // Get the completion from the data
+    let result = data.BK9 || "SERVER ERROR";
+    // Reply with the result
+    m.reply(result);
 
-      
-    let apiurl = `https://api.bk9.site/ai/chatgpt4/?q=${encodeURIComponent(prompt)}`
-    
-    const result = await fetch(apiurl);
-    const response = await result.json();
-    console.log(response);
-      
-      m.react('✅');
-    const textt = response.BK9;
-    await conn.sendMessage(m.chat, { text: textt });
-
+    // React with a checkmark emoji
+    m.react("✅");
   } catch (error) {
-    console.error(error);
-    m.reply('*ERROR FROM SERVER*');
+    // Log the error
+    console.error('Error:', error); 
+    // Reply with an error message
+    m.reply(`*ERROR*: ${error.message}`);
   }
-}
+};
 
-handler.help = ['gpt <text>']
-handler.tags = ['tools']
-handler.command = /^(gpt)$/i
+handler.command = ['gpt'];
+handler.diamond = false;
 
 export default handler;
