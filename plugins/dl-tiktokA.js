@@ -35,7 +35,6 @@ m.react('⏳')
       let p = await fg.tiktok(args[0])
       conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m)
     } catch {
-      m.reply('*An unexpected error occurred*')
     }
   }
 }
