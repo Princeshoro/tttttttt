@@ -1,57 +1,47 @@
-import fs from 'fs';
-import fetch from 'node-fetch';
-import axios from 'axios';
+import { tiktokdl } from '@bochilteam/scraper'
+import fg from 'api-dylux'
 
-// Placeholder for the fetchJson function or import statement
-// import { fetchJson } from 'some-library';
-// or
-// async function fetchJson(url) { /* ... */ }
-
-const handler = async (m, { conn, text, args, usedPrefix, command }) => {
-  
+let handler = async (m, { conn, text, args, usedPrefix, command }) => {
   if (!args[0] && m.quoted && m.quoted.text) {
-    args[0] = m.quoted.text;
+    args[0] = m.quoted.text
   }
-  if (!args[0] && !m.quoted) throw 'Give the link of the TikTok video or quote a TikTok link';
-  if (!args[0].match(/tiktok/gi)) throw 'Verify that the link is from TikTok';
+  if (!args[0] && !m.quoted) throw `Give the link of the video Tiktok or quote a tiktok link`
+  if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`
 
-  m.reply(waittt);
+m.react('⏳')
+  
+  
 
   try {
-    let res = await fetch(`https://api.lolhuman.xyz/api/tiktok2?apikey=GataDios&url=${encodeURIComponent(text)}`);
-    let anu = await res.json()
+  	m.reply(`⏳ *Wait a moment...*`)
+    const {
+      author: { nickname },
+      video,
+      description,
+    } = await tiktokdl(args[0])
+    const url =
+      video.no_watermark2 ||
+      video.no_watermark ||
+      'https://tikcdn.net' + video.no_watermark_raw ||
+      video.no_watermark_hd
+
+    if (!url) throw global.error
     
-    console.log('TikTok API Response:', anu);
-
-    if (anu.status === 200 && anu.message === 'success' && anu.result) {
-      const videoUrl = anu.result;
-
-      const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
-      const videoBuffer = Buffer.from(response.data);
-
-      // Save the video to a temporary file
-      const randomName = `temp_${Math.floor(Math.random() * 10000)}.mp4`;
-      fs.writeFileSync(`./${randomName}`, videoBuffer);
-
-      //caption
-      const cap = `${vidcap}`;
-      
-      // Send the video using conn.sendMessage with the saved video
-      await conn.sendMessage(m.chat, { video: fs.readFileSync(`./${randomName}`), mimetype: 'video/mp4', caption: cap}, { quoted: m });
-
-      // Delete the temporary file
-      fs.unlinkSync(`./${randomName}`);
-    } else {
-      console.log('Error: Unable to fetch TikTok video. Check the console logs for more details.');
+    let txt = `${vidcap}`;
+    m.react('✅')
+    conn.sendFile(m.chat, url, 'tiktok.mp4', txt, m)
+  } catch (err) {
+    try {
+      let p = await fg.tiktok(args[0])
+      conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m)
+    } catch {
+      m.reply('*An unexpected error occurred*')
     }
-  } catch (error) {
-    console.error(error);
-    m.reply('An error occurred while processing your request.');
   }
-};
+}
 
-handler.help = ['tiktok2'].map((v) => v + ' <url>');
-handler.tags = ['downloader'];
-handler.command = ['ttkk'];
+handler.help = ['tiktok'].map(v => v + ' <url>')
+handler.tags = ['downloader']
+handler.command = ['ttkk']
 
-export default handler;
+export default handler
