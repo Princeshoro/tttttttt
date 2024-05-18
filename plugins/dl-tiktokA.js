@@ -10,10 +10,10 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 
 m.react('⏳')
   
-  
+  m.reply(`⏳ *Wait a moment...*`)
 
   try {
-  	m.reply(`⏳ *Wait a moment...*`)
+  	
     const {
       author: { nickname },
       video,
