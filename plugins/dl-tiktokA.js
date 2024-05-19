@@ -29,12 +29,13 @@ m.react('⏳')
     
     let txt = `${vidcap}`;
     m.react('✅')
-    conn.sendFile(m.chat, url, 'tiktok.mp4', txt, m)
+    conn.sendFile(m.chat, url, 'tiktok.mp4', '', m)
   } catch (err) {
     try {
       let p = await fg.tiktok(args[0])
       conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m)
     } catch {
+           m.reply('*An unexpected error occurred*')
     }
   }
 }
