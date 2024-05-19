@@ -12,6 +12,8 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     throw `Verify that the link is from TikTok`;
   }
 
+  global.fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+
   m.react('⏳');
   m.reply(`⏳ *Wait a moment...*`);
 
@@ -28,13 +30,13 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     }
 
     let txt = `${vidcap}`;
-    m.react('✅');
-    conn.sendFile(m.chat, url, 'tiktok.mp4', '', m);
+    
+    conn.sendFile(m.chat, url, 'tiktok.mp4', '', fkontak);
   } catch (err) {
     console.error(err);
     try {
       let p = await fg.tiktok(args[0]);
-      conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m);
+      conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, fkontak);
     } catch (err) {
       console.error(err);
       m.reply('*An unexpected error occurred*');
