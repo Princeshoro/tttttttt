@@ -1,5 +1,3 @@
-import fs from 'fs-extra';
-import axios from 'axios';
 import fetch from 'node-fetch';
 
 const handler = async (m, { conn, args, command, usedPrefix }) => {
@@ -20,36 +18,30 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
 
   if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙂𝙄𝙑𝙀 𝙁𝘽 𝙑𝙄𝘿𝙀𝙊 𝙇𝙄𝙉𝙆 \n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} 𝘺𝘰𝘶𝘳 𝘷𝘪𝘥𝘦𝘰 𝘶𝘳𝘭 𝘩𝘦𝘳𝘦`, fkontak, m)
   if (!args[0].match(/www.facebook.com|fb.watch/g)) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙂𝙄𝙑𝙀 𝙁𝘽 𝙑𝙄𝘿𝙀𝙊 𝙇𝙄𝙉𝙆 \n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} 𝘺𝘰𝘶𝘳 𝘷𝘪𝘥𝘦𝘰 𝘶𝘳𝘭 𝘩𝘦𝘳𝘦*`, fkontak, m)
-
-  m.reply(waitt)
+  if (!enviando) enviando = true
+  
 
   try {
-    const url = `https://api-smd.onrender.com/api/fbdown?url=${args[0]}`;
-    const response = await axios.get(url);
-    const { result } = response.data;
-    const { Normal_video } = result[0];
 
-    if (!Normal_video) {
-      return conn.reply(m.chat, "Invalid Video URL!", fkontak, m);
+    m.reply(waitt)
+    
+   const d2ata = await fetch(`https://api-smd.onrender.com/api/fbdown?url=${args[0]}`);
+   const r2es = await d2ata.json();
+    let linkdl = '';  
+    if (r2es?.status === true) {
+      linkdl = `${r2es.resultado.data}`;
+    } else {
+      linkdl = XD  
+      enviando = false
     }
-
-    return conn.sendMessage(
-      m.chat,
-      {
-        video: {
-          url: Normal_video,
-        },
-        caption: `${vidcap}`,
-      },
-      {
-        quoted: m,
-      }
-    );
-  } catch (error) {
-    console.error(error);
-    await conn.reply(m.chat, "An error occurred while downloading the video.", fkontak, m);
+    conn.sendMessage(m.chat, {video: {url: linkdl}, filename: 'error.mp4', caption: `_*${vidcap}*_`}, {quoted: m});
+    enviando = false
+  } catch (err1) {
+      enviando = false
+      console.log('Error: ' + err1.message)
+      throw `_*Error while downloading the video.*`;
   }
-}
-
+};
+  
 handler.command = ['fbb'];
 export default handler;
