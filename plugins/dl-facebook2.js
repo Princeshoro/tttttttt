@@ -1,30 +1,14 @@
 import fetch from 'node-fetch';
-
-const handler = async (m, { conn, args, command, usedPrefix }) => {
-  let enviando = false; // Declare the enviando variable here
-  let fkontak = {
-    "key": {
-      "participants":"0@s.whatsapp.net",
-      "remoteJid": "status@broadcast",
-      "fromMe": false,
-      "id": "Halo"
-    },
-    "message": {
-      "contactMessage": {
-        "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-      }
-    },
-    "participant": "0@s.whatsapp.net"
-  }
-
-  if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙂𝙄𝙑𝙀 𝙁𝘽 𝙑𝙄𝘿𝙀𝙊 𝙇𝙄𝙉𝙆 \n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} 𝘺𝘰𝘶𝘳 𝘷𝘪𝘥𝘦𝘰 𝘶𝘳𝘭 𝘩𝘦𝘳𝘦`, fkontak, m)
-  if (!args[0].match(/www.facebook.com|fb.watch/g)) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}𝙂𝙄𝙑𝙀 𝙁𝘽 𝙑𝙄𝘿𝙀𝙊 𝙇𝙄𝙉𝙆 \n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} 𝘺𝘰𝘶𝘳 𝘷𝘪𝘥𝘦𝘰 𝘶𝘳𝘭 𝘩𝘦𝘳𝘦*`, fkontak, m)
-  if (!enviando) enviando = true
+let enviando = false;
+const handler = async (m, {conn, args, command, usedPrefix}) => {
   
+  if (!args[0]) throw `𝙂𝙄𝙑𝙀 𝙁𝘽 𝙑𝙄𝘿𝙀𝙊 𝙇𝙄𝙉𝙆\n\n_${usedPrefix + command} https://fb.watch_`;
+  const linkface = await isValidFacebookLink(args[0])  
+  if (!linkface) throw `Provide a valid FB Link Example: \n${usedPrefix + command} https://fb.watch`;
+  if (!enviando) enviando = true
   try {
-    m.reply(waitt)
-    
-    const d2ata = await fetch(`https://api-smd.onrender.com/api/fbdown?url=${args[0]}`);
+    await m.reply(waitt);
+    const d2ata = await fetch(`https://api.cafirexos.com/api/facebook?url=${args[0]}&apikey=BrunoSobrino`);
     const r2es = await d2ata.json();
     let linkdl = '';  
     if (r2es?.status === true) {
@@ -33,14 +17,20 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
       linkdl = XD  
       enviando = false
     }
-    conn.sendMessage(m.chat, {video: {url: linkdl}, filename: 'error.mp4', caption: `_*${vidcap}*_`}, {quoted: m});
+    conn.sendMessage(m.chat, {video: {url: linkdl}, filename: 'error.mp4', caption: `_*${tradutor.texto4}*_`}, {quoted: m});
     enviando = false
+    m.react('✅')
   } catch (err1) {
-    enviando = false
-    console.log('Error: ' + err1.message)
-    throw `_*Error while downloading the video.*`;
+      enviando = false
+      console.log('Error: ' + err1.message)
+      throw `*Error while downloading the video.*`;
   }
 };
-
 handler.command = ['fbb'];
 export default handler;
+
+
+async function isValidFacebookLink(link) {
+    const validPatterns = [/facebook\.com\/[^/]+\/videos\//i, /fb\.watch\//i, /fb\.com\/watch\//i, /fb\.me\//i, /fb\.com\/video\.php\?v=/i, /facebook\.com\/share\/v\//i, /facebook\.com\/share\/r\//i, /fb\.com\/share\/v\//i, /fb\.com\/share\/r\//i, /facebook\.com\/[^/]+\/posts\/[^/]+\//i, /facebook\.com\/reel\/[^/]+\//i];
+    return validPatterns.some(pattern => pattern.test(link));
+}
