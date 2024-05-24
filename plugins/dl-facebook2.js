@@ -1,5 +1,10 @@
 import fetch from 'node-fetch';
 let enviando = false;
+
+global.MyApiRestBaseUrl = 'https://api.cafirexos.com'; // Bloqueo de IP -> usar esta para no ser bloqueado: 'https://api-brunosobrino.onrender.com';
+global.MyApiRestApikey = 'BrunoSobrino';
+
+  
 const handler = async (m, {conn, args, command, usedPrefix}) => {
   
   if (!args[0]) throw `𝙂𝙄𝙑𝙀 𝙁𝘽 𝙑𝙄𝘿𝙀𝙊 𝙇𝙄𝙉𝙆\n\n_${usedPrefix + command} https://fb.watch_`;
@@ -8,7 +13,7 @@ const handler = async (m, {conn, args, command, usedPrefix}) => {
   if (!enviando) enviando = true
   try {
     await m.reply(waitt);
-    const d2ata = await fetch(`https://api.cafirexos.com/api/facebook?url=${args[0]}&apikey=BrunoSobrino`);
+    const d2ata = await fetch(`${global.MyApiRestBaseUrl}/api/facebook?url=${args[0]}&apikey=${global.MyApiRestApikey}`);
     const r2es = await d2ata.json();
     let linkdl = '';  
     if (r2es?.status === true) {
@@ -17,7 +22,7 @@ const handler = async (m, {conn, args, command, usedPrefix}) => {
       linkdl = XD  
       enviando = false
     }
-    conn.sendMessage(m.chat, {video: {url: linkdl}, filename: 'error.mp4', caption: `_*${tradutor.texto4}*_`}, {quoted: m});
+    conn.sendMessage(m.chat, {video: {url: linkdl}, filename: 'error.mp4', caption: `_*${vidcap}*_`}, {quoted: m});
     enviando = false
     m.react('✅')
   } catch (err1) {
