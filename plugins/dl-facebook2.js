@@ -24,19 +24,20 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
   m.reply(waitt)
 
   try {
-    let res = await fetch(`https://api-smd.onrender.com/api/fbdown?url=${args[0]}`);
-    const Jjson = await res.json();
-    let video = Jjson.result[0];
+    const url = `https://api-smd.onrender.com/api/fbdown?url=${args[0]}`;
+    const response = await axios.get(url);
+    const { result } = response.data;
+    const { Normal_video } = result[0];
 
-    if (!video || !video.status) {
-      return await conn.reply(m.chat, "Invalid Video URL!", fkontak, m);
+    if (!Normal_video) {
+      return conn.reply(m.chat, "Invalid Video URL!", fkontak, m);
     }
 
-    return await conn.sendMessage(
+    return conn.sendMessage(
       m.chat,
       {
         video: {
-          url: video.result.Normal_video, // Assuming you want the normal quality video
+          url: Normal_video,
         },
         caption: `${vidcap}`,
       },
@@ -45,15 +46,10 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
       }
     );
   } catch (error) {
-    await conn.reply(m.chat,
-      error + "\n\nCommand: " + command,
-      fkontak,
-      {
-        quoted: m,
-      }
-    );
+    console.error(error);
+    await conn.reply(m.chat, "An error occurred while downloading the video.", fkontak, m);
   }
 }
 
 handler.command = ['fbb'];
-export default handler
+export default handler;
