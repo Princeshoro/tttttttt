@@ -7,10 +7,6 @@ RUN sudo dnf -y update &&\
 
 RUN git clone https://github.com/PRINCE-GDS/GDS-MD
 
-WORKDIR /root/GDS-MD
-
-COPY ./root/GDS-MD
-
 RUN yarn install
 
 CMD ["node", "index.js"]
