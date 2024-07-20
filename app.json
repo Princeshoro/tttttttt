@@ -61,11 +61,6 @@
       "description": "Put your RemoveBg API key, if you want to use this cmd",
       "required": false,
       "value": ""
-    },
-       "DATABASE_URL": {
-      "description": "your mongodb database url",
-      "required": false,
-      "value": ""
        }      
   },
   
