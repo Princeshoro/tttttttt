@@ -6,6 +6,7 @@ import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'   
 import fetch from 'node-fetch' 
+import './plugins/_content.js'
 /**
  * @type {import('@adiwajshing/baileys')}  
  */
@@ -24,10 +25,14 @@ export async function handler(chatUpdate) {
 this.msgqueque = this.msgqueque || [];
 this.uptime = this.uptime || Date.now();
 if (!chatUpdate) {
-return;
+return
 }
-this.pushMessage(chatUpdate.messages).catch(console.error);
-let m = chatUpdate.messages[chatUpdate.messages.length - 1];
+if (!chatUpdate || !chatUpdate.messages) {
+return
+} else {
+this.pushMessage(chatUpdate.messages).catch(console.error)
+}
+let m = chatUpdate.messages[chatUpdate.messages.length - 1]
 if (!m) {
 return;
 }
@@ -36,9 +41,9 @@ if (global.db.data == null) await global.loadDatabase()
 if (global.chatgpt.data === null) await global.loadChatgptDB()
 /*------------------------------------------------*/	
 try {
-m = smsg(this, m) || m;
-if (!m) {
-return;
+m = smsg(this, m) || m
+if (!m)
+return
 }
 global.mconn = m 
 m.exp = 0
