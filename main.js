@@ -90,7 +90,41 @@ global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse()
 global.prefix = new RegExp('^[' + (process.env.PREFIX || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@aA').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']');
 
 //Mongodb var
+global.opts['db'] = process.env.DATABASE_URL
 
+global.db = new Low(
+  /https?:\/\//.test(opts['db'] || '') ?
+    new CloudDBAdapter(opts['db']) : 
+     /mongodb(\+srv)?:\/\//i.test(opts['db']) ?
+      new MongoDB(opts['db']) :
+      new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
+);
+
+global.DATABASE = global.db; 
+global.loadDatabase = async function loadDatabase() {
+if (global.db.READ) {
+return new Promise((resolve) => setInterval(async function() {
+if (!global.db.READ) {
+clearInterval(this);
+resolve(global.db.data == null ? global.loadDatabase() : global.db.data);
+}}, 1 * 1000));
+}
+if (global.db.data !== null) return;
+global.db.READ = true;
+await global.db.read().catch(console.error);
+global.db.READ = null;
+global.db.data = {
+users: {},
+chats: {},
+stats: {},
+msgs: {},
+sticker: {},
+settings: {},
+...(global.db.data || {}),
+};
+global.db.chain = chain(global.db.data);
+};
+loadDatabase();
 
 
 /* ------------------------------------------------*/
