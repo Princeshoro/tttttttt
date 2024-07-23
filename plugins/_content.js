@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import axios from 'axios'
 import fs from 'fs'
@@ -33,3 +33,4 @@ let id = canalIdGB[randomIndex]
 let nombre = canalNombreGB[randomIndex]
 return { id, nombre }
 } 	
+*/
