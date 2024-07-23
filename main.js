@@ -25,13 +25,43 @@ import store from './lib/store.js'
 import readline from 'readline'
 import NodeCache from 'node-cache'
 import processTxtAndSaveCredentials from './lib/makesession.js';
+const {
+    DisconnectReason,
+    useMultiFileAuthState,
+    MessageRetryMap,
+    fetchLatestBaileysVersion,
+    makeCacheableSignalKeyStore,
+    makeInMemoryStore,
+    proto,
+    delay,
+    jidNormalizedUser,
+    PHONENUMBER_MCC,
+    Browsers
+} = await (await import('@whiskeysockets/baileys')).default;
 
-const { makeInMemoryStore, 
-       DisconnectReason, 
-       useMultiFileAuthState, 
-       MessageRetryMap, 
-       fetchLatestBaileysVersion, 
-       makeCacheableSignalKeyStore,PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
+dotenv.config()
+
+async function main() {
+  const txt = process.env.SESSION_ID; 
+  
+  if (!txt) {
+    console.error("Environment variable not found.");
+    return;
+  }
+  
+  try {
+    await processTxtAndSaveCredentials(txt); // Wait for processTxtAndSaveCredentials to complete
+    console.log("processTxtAndSaveCredentials completed.");
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+main();
+
+await delay(1000 * 10)
+
 
 const { CONNECTING } = ws
 
