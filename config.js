@@ -50,22 +50,22 @@ global.version_language = '1.0 (MID-GB)'
 //💌------------------------------------------💌
 //FOR ENVIRONMENTAL VARIABLES👇🏻
   
-/*global.vidcap = process.env.Video_Cap
+global.vidcap = process.env.Video_Cap
 global.packname = process.env.BOTNAME
-global.author = process.env.BOTNAME*/
+global.author = process.env.BOTNAME
 
 //💌------------------------------------------💌
 
 //FOR NONE ENVIRONMENT VARIABLES👇🏻
 
-global.vidcap = "💌-------------ɢᴅs-ᴍᴅ-------------💌"
+/*global.vidcap = "💌-------------ɢᴅs-ᴍᴅ-------------💌"
 global.packname = "Prince"
 global.author = "Prince"
 global.antidelete = "true"
 global.AutoReaction = "false"
 global.MODE = "public"
 global.PREFIX = "."
-global.STATUSVIEW = "false"
+global.STATUSVIEW = "false"*/
 
 
 
