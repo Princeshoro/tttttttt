@@ -34,7 +34,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
   }
 };
 
-handler.command = ['gpt3'];
+handler.command = ['gpt'];
 handler.diamond = false;
 
 export default handler;
